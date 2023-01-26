@@ -1,0 +1,94 @@
+\input{header.tex}
+
+\section{Basic Properties of Numbers}
+\subsection*{Properties}
+\begin{enumerate}
+
+\item If $a, b$ and $c$ are any numbers, then
+$$ a + (b + c) = (a + b) + c$$
+
+\item If $a$ is any number, then 
+$$ a + 0  = 0 + a = a$$
+
+\item For every $a$, there is a number $-a$ such that
+$$a + (-a) = (-a) + a = 0$$
+
+\item If $a$ and $b$ are any numbers, then
+$$a + b = b + a$$
+
+\item If $a, b$ and $c$ are any numbers, then
+$$a \cdot (b \cdot c) = (a \cdot b ) \cdot c$$
+
+\item If $a$ is any number, then
+$$ a \cdot 1 = 1 \cdot a = a$$
+
+\item For every number $a \neq 0$, there is a number $a^{-1}$ such that
+$$ a \cdot a^{-1} = a^{-1} \cdot a  = 1$$
+
+\item If $a$ and $b$ are any numbers, then
+$$a \cdot b = b \cdot a$$
+
+\item If $a, b$ and $c$ are any numbers, then
+$$ a \cdot (b + c) = a \cdot b + a \cdot c$$
+
+\item (Trichotomy Law) For every number $a$, one and only one of the following holds ($P$ is positive numbers)
+    + $a = 0$
+    + $a$ is in the collection $P$
+    + $-a$ is in the collection $P$
+
+\item (Closure Under Addition) If $a$ and $b$ are in $P$, then $a+b$ is in $P$
+
+\item (Closure Under multiplication) If $a$ and $b$ are in $P$, then $a \cdot b$ is in $P$
+
+\end{enumerate}
+
+\subsection*{Observations}
+$$ |a| = \sqrt{a^2} $$
+\begin{equation*}
+       |a| =
+         \begin{cases}
+            a & a \geq 0 \\
+           -a &  a < 0
+         \end{cases}
+\end{equation*}
+
+\subsection*{Theorems}
+1. For all numbers $a$ and $b$, we have
+$$|a + b| \leq |a| + |b|$$
+  Proof by Cases on:
+    + $a \geq 0$, $b \geq 0$
+    + $a \geq 0$, $b \leq 0$
+    + $a \leq 0$, $b \geq 0$
+    + $a \leq 0$, $b \leq 0$
+
+  Or
+  $$(|a + b|)^2 = (a+b)^ + 2sb + b^2
+                \leq a^2 + 2|a| \cdot |b| + b^2
+                = |a|^2 + 2|a| \cdot|b| + |b|^2
+                = (|a| + |b|)^2
+  $$
+
+\section{Numbers of Various Sorts}
+\subsection*{Definitions}
+\begin{itemize}
+	\item \textbf{Natural Numbers} ($\NN$) - Counting numbers $\{1 ,2, 3, ...\}$
+	\item \textbf{Principle of Induction} - $f(x)$ is true for all $x$ provided
+		\begin{enumerate}
+			\item $f(1)$ is true
+			\item Whenever $f(k)$ is true, $f(k+1)$ is true
+		\end{enumerate}
+	\item \textbf{Principle of Induction} with Sets - If $A$ is any set of Natural Numbers and
+		\begin{enumerate}
+			\item 1 is in $A$
+			\item $k+1$ is in A whenever $k$ is in $A$
+		\end{enumerate} 
+	 ...  then $A$ is the set of all natural numbers
+	 \item \textbf{Well-Ordering Principle} - If  $A$ is a non-null set, then $A$ has a least member
+	 \item $!1 = !0 = 1$
+	 \item $\sum_{i=1}^{n} a_i$ is defined recursively as:
+	 	\begin{enumerate}
+	 		\item $\sum_{i=1}^{1} a_i = a_1$
+	 		\item $\sum_{i=1}^{n} a_i = \sum_{i=1}^{n-1} a_i + a_n$
+	 	\end{enumerate}
+\end{itemize}
+\input{footer.tex}
