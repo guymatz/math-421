@@ -1,0 +1,193 @@
+% This is a template for doing homework assignments in LaTeX, cribbed from M. Frenkel (NYU) and A. Hanhart (UW-Madison)
+
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage[margin=1in]{geometry} % This package allows the editing of the page layout. I've set the margins to be 1inch. 
+
+\usepackage{amsmath, amsfonts}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+\usepackage[shortlabels]{enumitem}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+
+%Custom commands 
+\newcommand{\der}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+%Custom symbols
+\newcommand{\Rb}{\mathbb{R}}
+
+\begin{document}
+
+\begin{center}
+\Large{\textbf{Assignment \#1}
+            
+UW-Madison MATH 421} % Name of course here
+\vspace{5pt}
+
+\normalsize{  Guy Matz% Your name here
+
+Due:  June 20, 2023 at 11:59pm}        
+\vspace{15pt}
+
+\end{center}
+
+
+\subsection*{Exercise One:} 
+    
+\begin{enumerate}[(a)]
+  \item Code:
+\begin{verbatim}
+If $f(x) = x^n$,  then 
+$$
+f^\prime(x) = n x^{n-1}.
+$$
+\end{verbatim}
+
+Output:
+
+If $f(x) = x^n$,  then 
+$$
+f^\prime(x) = n x^{n-1}.
+$$
+\item Code:
+\begin{verbatim}
+If $n \neq -1$, then
+   \[ \int_{{}}^{{}} {x^n} \: d{x} {}  = \frac{1}{n+1} x^{n+1} + C \]
+\end{verbatim}
+
+Output:
+
+If $n \neq -1$, then
+   \[ \int_{{}}^{{}} {x^n} \: d{x} {}  = \frac{1}{n+1} x^{n+1} + C \]
+
+\item Code:
+\begin{verbatim}
+  The derivative of the function $f$ at $x=a$ is
+  \[ f'(a) = \lim_{h \to 0 } \frac{f(a + h) - f(a)}{h}  \]
+\end{verbatim}
+Output:
+
+  The derivative of the function $f$ at $x=a$ is
+  \[ f'(a) = \lim_{h \to 0 } \frac{f(a + h) - f(a)}{h}  \]
+
+\end{enumerate}
+
+\newpage
+
+\subsection*{Exercise Two:}
+Using \textbackslash{}right and \textbackslash{}left commands, recreate the followings statements (remember to include the code!):
+
+\begin{enumerate}[(a)]
+  \item The number $e$ is defined by
+
+    Code:
+    \begin{verbatim}
+      The number $e$ is defined by
+      \[ e = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n \]
+    \end{verbatim}
+    Output:
+
+      The number $e$ is defined by
+      \[ e = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n \]
+  \item If $f$ is a continuous function
+
+    Code:
+    \begin{verbatim}
+      If $f$ is a continuous function, then
+      \[ \frac{d}{dx} \left[ \int_{{a}}^{{x}} {f(t)} \: d{t} \right] = f(x) \]
+    \end{verbatim}
+    Output:
+
+      If $f$ is a continuous function, then
+      \[ \frac{d}{dx} \left[ \int_{{a}}^{{x}} {f(t)} \: d{t} \right] = f(x) \]
+\end{enumerate}
+
+
+\newpage
+\subsection*{Exercise Three:}
+
+Code:
+\begin{verbatim}
+  \[ 
+    \det \begin{pmatrix}
+      a & b \\
+      c & d
+    \end{pmatrix} = ad - bc
+  \]
+\end{verbatim}
+
+Output:
+  \[ 
+    \det
+    \begin{pmatrix}
+      a & b \\
+      c & d
+    \end{pmatrix} = ad - bc
+  \]
+
+
+\newpage
+\subsection*{Exercise Four:}
+
+Code:
+\begin{verbatim}
+  If $f(x) = x^2$, then
+  \begin{align*}
+    f'(a) &= \lim_{h \to 0} \frac{f(a+h) - f(h)}{h} \\
+          &= \lim_{h \to 0} \frac{(a + h)^2 - s^2}{h} \\
+          &= \lim_{h \to 0} \frac{a^2 + 2ah + a^2 - a^2}{h} \\
+          &= \lim_{h \to 0} (2a + h) = 2a
+  \end{align*}
+\end{verbatim}
+
+Output:
+
+  If $f(x) = x^2$, then
+  \begin{align*}
+    f'(a) &= \lim_{h \to 0} \frac{f(a+h) - f(h)}{h} \\
+          &= \lim_{h \to 0} \frac{(a + h)^2 - s^2}{h} \\
+          &= \lim_{h \to 0} \frac{a^2 + 2ah + a^2 - a^2}{h} \\
+          &= \lim_{h \to 0} (2a + h) = 2a
+  \end{align*}
+
+\newpage
+\subsection*{Exercise Five:}
+Code:
+\begin{verbatim}
+  If
+  \[ 
+  f(x) = \begin{cases}
+    x      & \text{ if $ x \leq 1$ } \\
+    2x + 1 & \text{ if $ x > 1 $ }
+  \end{cases}
+  \]
+  then $\lim_{x \to 1} f(x)$ does not exist
+\end{verbatim}
+
+Output:
+
+  If
+  \[ 
+  f(x) = \begin{cases}
+    x      & \text{ if $ x \leq 1$ } \\
+    2x + 1 & \text{ if $ x > 1 $ }
+  \end{cases}
+  \]
+  then $\lim_{x \to 1} $ does not exist
+
+\newpage
+\subsection*{Exercise Six:}
+
+Code:
+\begin{verbatim}
+  \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+  If $z = x^2 + xy + y^2$, then
+  \[
+    \der{z}{x} = 2x + y
+  \]
+\end{verbatim}
+Output:
+
+  \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+  If $z = x^2 + xy + y^2$, then
+  \[
+    \pder{z}{x} = 2x + y
+  \]
+\end{document}

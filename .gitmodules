@@ -1,0 +1,3 @@
+[submodule "LaTeX-Linter"]
+	path = LaTeX-Linter
+	url = https://github.com/hbiede/LaTeX-Linter/
