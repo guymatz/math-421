@@ -1,0 +1,104 @@
+\documentclass{report}
+
+\input{.tex/preamble}
+\input{.tex/macros}
+\input{.tex/letterfonts}
+
+\title{
+  \Huge{Math 421---The Theory of Single Variable Calculus}
+  \\
+  Notes
+}
+\author{\huge{Guy Matz}}
+\date{}
+\begin{document}
+
+\section{20230619 - Intro to Math Arguments}%
+\begin{itemize}
+        \item Stamements & Locgivasl Operations
+
+          Statments are sentinves which are eithertrue of false (not both)
+
+          e.g. The number 6 is even
+
+          \underline{OPERATIONS on statements}
+
+          P & Q are staements.  We can modify and compnine these etatements in
+          difffferent ways.
+
+          NOT: $\neg$ - The statement "$\neg P$" is true when P is false
+
+          AND $\wedge$ - The statement "$P \wedge Q $" is true when both P and Q
+
+          OR $\vee$ - The statement "$P \vee Q $" is true when at least one of
+          P and Q is true.  False when both P \& Q are false
+
+          IF ... THEN $\Longrightarrow $: The Statement "If P, then Q" is true when
+          \begin{itemize}
+            \item P is true and Q is true
+            \item P is False
+          \end{itemize}
+
+          False when P is true and Q is false
+
+          $P \Longrightarrow Q$ is equivalent to $(P \wedge Q) \vee (\neg P)$
+
+          IF AND NLY IF\\
+          P iff Q ($P \Leftrightarrow Q$ is true when either
+         \begin{itemize}
+            \item P and Q are both true
+            \item P and Q are both false
+          \end{itemize}
+
+          \underline{FOR P $\Longrightarrow Q$ we have the following}
+
+          CONVERSE: The converse of is $Q \Longrightarrow P$
+          CONTRAPOSITIVE The constrspoasitive is $\neg Q \Longrightarrow \neg P$
+
+          $P \Longrightarrow Q$ is logically equivalent to its contrapositive $(\neg Q \Longrightarrow \neg P)$
+
+
+      two statements are logivally equivalent if they have the same truth tables.
+
+      \underline{WRITE OUT TRUTH TABLES}
+
+      Compare the truth tables for if..then, contrapositive and $(P \wedge Q) \vee (\neg P)$
+
+      P    Q   $P \wedge Q)$ $\neg P$      $(P \wedge Q) \vee \neg P$ \\
+      T    F \\
+      T    T \\
+      F    T \\
+      F    F \\
+
+      \underline{DEFNIITIONS}
+      We say an integer n is even if there exists an integer k such that $n = 2k$
+
+      We say an integer n is odd if there exists an integer k such that $n = 2k+1$
+
+      \thm{ $x^2 + 1$ is even } {
+        Suppose x is an integer.  If x is odd, then $x^2 + 1$ is even. 
+      }
+      \myproof {
+        Since xx is odd, $x = 2k+1$ ffor some integer k.  The $x^2 + 1 = (2k+1)^2 + 1) = 4k^2 + 2k + 2) = 2(k^2 + k + 1)$.  Since k is an integer, $sk^2  + 2k =1$ is also 
+        an integer.  So, $x^2 + 1 = 2m$, where $m = 2k^2 + 2k + 1$.  
+        Hence we are done
+      }
+      \thm{ x is even } {
+        For every integer x, x is even iff $x + 1$ is odd 
+      }
+      \myproof {
+        $\Longleftarrow$ First we want to show $x$ is even $\Longrightarrow x+1$ is odd
+
+        Since x is even, $x = 2k$ for some integer k.  So, $x+1 = 2k+1$.  Then by  defn, $x+1$ is odd
+
+        $\Longrightarrow$ Next we want to show $x+1$ is odd $\Longrightarrow $ x is even.
+
+        If x+1 is odd, $x+1 = sk+1$ ffor some integer k.  This measnt that $x = 2k$,
+        By defn, x is even
+      }
+
+      REMARK: Proof by cases
+
+\end{itemize}
+
+\end{document}
