@@ -1,0 +1,531 @@
+\documentclass{report}
+
+\input{.tex/preamble}
+\input{.tex/macros}
+\input{.tex/letterfonts}
+
+\title{
+  \Huge{Math 421---The Theory of Single Variable Calculus}
+  \\
+  Notes
+}
+\author{\huge{Guy Matz}}
+\date{}
+\begin{document}
+
+\section*{20230619 - Intro to Math Arguments}%
+  \begin{itemize}
+          \item Stamements \& Locgivasl Operations
+
+            Statments are sentinves which are eithertrue of false (not both)
+
+            e.g. The number 6 is even
+
+            \underline{OPERATIONS on statements}
+
+            P \& Q are staements.  We can modify and compnine these etatements in
+            difffferent ways.
+
+            NOT: $\neg$ - The statement "$\neg P$" is true when P is false
+
+            AND $\wedge$ - The statement "$P \wedge Q $" is true when both P and Q
+
+            OR $\vee$ - The statement "$P \vee Q $" is true when at least one of
+            P and Q is true.  False when both P \& Q are false
+
+            IF ... THEN $\Longrightarrow $: The Statement "If P, then Q" is true when
+            \begin{itemize}
+              \item P is true and Q is true
+              \item P is False
+            \end{itemize}
+
+            False when P is true and Q is false
+
+            $P \Longrightarrow Q$ is equivalent to $(P \wedge Q) \vee (\neg P)$
+
+            IF AND NLY IF\\
+            P iff Q ($P \Leftrightarrow Q$ is true when either
+           \begin{itemize}
+              \item P and Q are both true
+              \item P and Q are both false
+            \end{itemize}
+
+            \underline{FOR P $\Longrightarrow Q$ we have the following}
+
+            CONVERSE: The converse of is $Q \Longrightarrow P$
+            CONTRAPOSITIVE The constrspoasitive is $\neg Q \Longrightarrow \neg P$
+
+            $P \Longrightarrow Q$ is logically equivalent to its contrapositive $(\neg Q \Longrightarrow \neg P)$
+
+
+        two statements are logivally equivalent if they have the same truth tables.
+
+        \underline{WRITE OUT TRUTH TABLES}
+
+        Compare the truth tables for if..then, contrapositive and $(P \wedge Q) \vee (\neg P)$
+
+        P    Q   $P \wedge Q)$ $\neg P$      $(P \wedge Q) \vee \neg P$ \\
+        T    F \\
+        T    T \\
+        F    T \\
+        F    F \\
+
+        \underline{DEFINITIONS}
+        We say an integer n is even if there exists an integer k such that $n = 2k$
+
+        We say an integer n is odd if there exists an integer k such that $n = 2k+1$
+
+        \thm{ $x^2 + 1$ is even } {
+          Suppose x is an integer.  If x is odd, then $x^2 + 1$ is even.
+        }
+        \myproof {
+          Since xx is odd, $x = 2k+1$ ffor some integer k.  The $x^2 + 1 = (2k+1)^2 + 1) = 4k^2 + 2k + 2) = 2(k^2 + k + 1)$.  Since k is an integer, $sk^2  + 2k =1$ is also
+          an integer.  So, $x^2 + 1 = 2m$, where $m = 2k^2 + 2k + 1$.
+          Hence we are done
+        }
+        \thm{ x is even } {
+          For every integer x, x is even iff $x + 1$ is odd
+        }
+        \myproof {
+          $\Longleftarrow$ First we want to show $x$ is even $\Longrightarrow x+1$ is odd
+
+          Since x is even, $x = 2k$ for some integer k.  So, $x+1 = 2k+1$.  Then by  defn, $x+1$ is odd
+
+          $\Longrightarrow$ Next we want to show $x+1$ is odd $\Longrightarrow $ x is even.
+
+          If x+1 is odd, $x+1 = sk+1$ ffor some integer k.  This measnt that $x = 2k$,
+          By defn, x is even
+        }
+
+        REMARK: Proof by cases
+
+  \end{itemize}
+
+\section*{20230620 - Proof Techniques}%
+  \begin{itemize}
+    \item Theorems are off the for $P \Longrightarrow Q$
+    \item Proof by Cases
+
+      Divide P into multiple cases
+
+    \item Proof by Contrapositive
+
+      $P \Longrightarrow Q $ is equivalent to $\neg Q \Longrightarrow \neg P$
+      Start the proof by stating "Proof by contrapositive: Assume $\neg Q$
+      and we will show that $\neg P$ is true
+
+    \item Proof by Contradiction
+
+      Assume that Q is not true.  Then we want to reach a contradiction
+        \[ \neg Q \wedge P \Longrightarrow \neg P \]
+      Start the proof by saying "Proof by contradiction:  Assume that
+      Q is not true ... "  or "Assume for a contradiction that Q is not
+      true"
+  \end{itemize}
+
+  \subsection*{Examples}%
+  \ex{} {
+    \thm{ $x + y \geq 19$ } {
+      Assume that x,y are integers.  Then $x+y > 19$ implies that
+          $x \geq 10$ or $y \geq 10$
+    }
+    P is $x + y \geq 19$ and `x and y are integers.  Q is $x \geq 10 \vee
+    y \geq 10$
+    \myproof {
+        Case 1: $x \geq 10$.  Then you are done, as the conclusion is satisied
+
+        Case 2: $x < 10$.  By assumption, $x + y \geq 19$. Then
+        $x + y \geq 19 \Longrightarrow y \geq 19-x$.
+
+        Since $x < 10$, $19 -x \geq 19-9 \geq 10$.  Now $ y \geq 19-x
+        \Longrightarrow y \geq 10$
+    }
+
+    \myproof {
+      Proof by Contrapositive:
+        \[ \neg (x + y \geq 19 ) == x + y < 19 \]
+        \[ \neg (x \geq 10 \vee y \geq 10) == x < 10 \wedge y < 10 \]
+
+        Assume that $x < 10 , y < 10$.  Since x and y are integers,
+        $x \leq 9$ and $y \leq 9$.  So $x + y \leq 9 + 9 = 18$.  Hence,
+        $x + y < 19$
+      }
+
+      \renewcommand\qedsymbol{\Lightning}
+      \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+        Assume THAT $ x \leq 9$ and $y \leq 9$.  Also we have that
+        $x + y \geq 19$.  Since $x \leq 9$ and $y \leq 9$,
+        $x + y \leq 9 + 9 = 18$.  But we know that $x + y \geq 19$.  But
+        this is a contradiction.
+      \end{proof}
+      \renewcommand\qedsymbol{$\square$}
+  }
+
+  \subsection*{Set Theory}%
+    \dfn{ Set }{
+      A set is a collection of unordered objects
+    }
+    Let $\mathbb{R}$ be the real numbers.
+    \begin{enumerate}
+      \item If $a < b, (a,b)$ is the set $(a,b) := \{x: x \in \mathbb{R} , a < x < b \}$
+      \item $[a,b) := \{x | x \in \mathbb{R} , a \leq x < b \} $
+      \item Empty set is the set that contains no elements: $\emptyset$
+      \item Since a set is unordered, $\{1,2,3\}$ is the same as $\{2,3,1\}$
+      \item Since we don't consider duplicates, $\{1,2,2,3\ = \{1,2,3\}$
+    \end{enumerate}
+
+    \underline{SUBSETS}
+    \begin{itemize}
+      \item Let S be a set.  Then we say that all of the  elemtns of B is a subset of A if all the elements of B are sslso elements of A
+        . $ B \subseteq A$
+      \item $B = \{x | x \in A, \text{some condition on x} \}$
+      \item $B = \{x | x \in \mathbb{R}, x = \frac{1}{n}, \text{for some integer} n $
+    \end{itemize}
+
+    \underline{OPERATIONS on SETS}
+    \begin{itemize}
+      \item Intersection: $\cap$.  E.g. $(1,3) \cap (2,4) = (2,3)$
+      \item Union: $\cup$  E.g. $(1,3) \cup (2,4) = (1,4)$
+      \item Product: $A \times B = \{(a,b) | a \in A, b \in B \}$
+    \end{itemize}
+
+    \underline{Practice Problems}
+    \begin{itemize}
+      \item Show that $\neg(P \vee Q) = \neg P \wedge  \neg Q$ by using
+      \item Show that $\neg(P \wedge Q) = \neg P \vee  \neg Q$ by using
+        a truth table
+      \item Let $x$ be an integer.  Then  $x$ is even iff $\frac{x}{2} $ is an integer
+      \item Let $a,b$ be integers.  Then $ab \geq 9$ implies $a \geq 3$ or
+        $ b b\geq 3$
+        \begin{enumerate}
+          \item What is $P, \neg P, \neg Q$
+          \item Prove this using all three techniques
+        \end{enumerate}
+    \end{itemize}
+
+
+\section*{20230621 - More Proof Techniques}%
+  \subsection*{Review}%
+  \begin{itemize}
+    \item 3 proof techniques
+    \item Basic Set theory
+  \end{itemize}
+
+  \subsection*{Real Numbers}%
+    \dfn{ Real Numbers }{
+      The real numbers denoted by $\mathbb{R}$ is a set with the
+      following algebraic properties
+      \begin{itemize}
+      \item Two operations, $\{+ , \cdot\}$
+      \item Two special numbers beloinging to $\mathbb{R}$, $\{0,1\}$
+      \item The set of positive integers $(P), P \subset \mathbb{R}$
+      \item 13 Properties
+      \end{itemize}
+    }
+
+    \underline{Remark}
+    \begin{enumerate}
+      \item It is not clear iff such a set exists
+      \item If the set exists, it is not clear iff it is unique
+      \item 13th property is hard to understand
+    \end{enumerate}
+
+    \underline{SOLUTION!}
+    \begin{enumerate}
+      \item Ignore remark 1 and 2 above
+      \item Delay discussing 13th property (Least Upper Bound)
+    \end{enumerate}
+
+    \underline{PLAN FOR CHAPTER 1}
+    \begin{enumerate}
+      \item Discuss the 1st 12 properties of real numbers
+      \item addition, subtraction, inequalities
+      \item prove more algebrai properties of $\mathbb{R}$ using the
+        first 12 properties
+    \end{enumerate}
+
+    \subsection*{The First 4 Properties (for addition)}%
+      \begin{enumerate}
+        \item[P1]: Additive Associativyy - $a + (b+c) = (a+b)+c$
+        \item[P2]: Additive Identity - $a + 0 = 0+a = a$
+        \item[P3]: Additive Inverse-For all real number $a$ there exists
+          a $-a$ such that $a + -a = 0$
+        \item[P4]: Commutativity of Additive - $a+b = b+a$ or all real
+          numbers $a,  b$
+      \end{enumerate}
+
+      \ex{} {
+        \thm{ 1 } {
+          Suppose $a$ and $x$ are real numbers, then $a+x=a \Rightarrow x=0$
+        }
+        \myproof {
+          Add $-a$ (P3) to both sides of the equation.  Then
+          $-a+(a+x) = -a + a = 0$ by P3.  Now,
+          $-a+(a+x) = (-a+a)+x) (P1) = 0 + x (defn) = x (P2)$.
+          By comparing (1) and (2) you get x=0
+        }
+
+        \myproof {
+          Suppose that $a+x=a$.  We know that
+          0 = -a + a (P3) \\
+          = -a + (a+x) by assupmption\\
+          =(-a+a)+x (P1)\\
+          = 0 +x (P1)\\
+          = x (P2)
+        }
+      }
+
+    \dfn{ Subbtraction }{
+      Using P3 we define subtraction For real numbers $a,b$
+
+      We define $a-b=a+-b$
+    }
+
+    \subsection*{The Properties for Multiplication}%
+      \begin{enumerate}
+        \item[P5]: Associativy - $a + (b+c) = (a+b)+c$
+        \item[P6]: Identity - $a \cdot 1 = 1 \cdot a = a$
+        \item[P7]: Multiplicative Inverse - Suppose $a \neq 0$, thn
+          there exists a real number $a^{-1}$ such that
+          $a \cdot a^{-1} = a^{-1} \cdot a = 1$
+        \item[P8]: Commutativity - $a \cdot b = b \cdot$
+          for any two real number $a,b$
+
+      \thm{ 2 } {
+        Suppose $a,b,c$ are real numbers such that {**}$a \cdot b=a \cdot c$
+        and $a \neq 0$, then $b = c$
+      }
+      \myproof {
+        $a^{-1}$ exists by P7. Pre-multiply $a^{-1}$ to both sides of **
+        .  So $a^{-1} (a \cdot) = a^{-1}(ac)$. By P5,
+        $a^{-1}(ab) = (a^{-1}a)b$ and  $a^{-1}(ac) = (a^{-1}a)c$.  By
+        P7 $a^{-1}a = 1$
+      }
+
+      \dfn{ Division }{
+        Using multiplicative inverse, suppose $b \neq 0$, then $a/b = a \cdot b^{-1}$
+      }
+        \item[P9]: Distributivity -
+          $a \cdot (b +c) = a \cdot b  + a \cdot c$
+          for any real numbers $a,b,c$
+
+          \thm{ 3 } {
+            Suppose $a$ is a real number, then $a \cdot 0 = 0$ and
+            $0 \cdot a = 0$
+          }
+
+          \myproof {
+             Consider $a 0 + a0$.  By P9 ***$a0 + a0 = a(0 + 0)$.  By
+             P2 $0 +0 =0$.  Then *** becomes $a0+a0=a0$.  By Theroem 1
+             (above) $a0=0$
+          }
+      \thm{ 4 } {
+        Suppose a,b are real numbers st $ab=0$, then either a=0 or b=0
+      }
+      \begin{proof}
+        \begin{case}
+          Suppose a = 0, then we are done
+        \end{case}
+        \begin{case}
+          Suppose $a \neq 0$, then P7 gives $a^{-`}$.
+          By premultiplying $a^{-1}$ to the eqn
+          $a^{-1}(a b) = a^{-1}(ab) = a ^{-1}0.
+          By P5 a index(ab) = (a ^{-1} a) b$.  By P7 $a ^{-1} a = 1$.
+          By Thm 3 $a ^{-1} 0 = 0$.  By P6 $a b = b$, so $b=0$
+
+        \end{case}
+      \end{proof}
+
+    \underline{3 Properties of Positive Numbers}
+    \item[P10] For every real number $a$ , exactly one of the following
+      holds
+      \begin{enumerate}
+        \item $a=0$
+        \item $a \in P$
+        \item $-a \in P$
+      \end{enumerate}
+    \item[P11]: If $a,b \in P$ then $a+b \in P$
+    \item[P12] If $a,b \in P$ then $a \cdot b \in P$
+  \end{enumerate}
+
+  P10 - P11 allows us to define inequalities
+  \dfn{ InequLITIES }{
+    \begin{enumerate}
+      \item $ a> b$ if $a-b \in P$
+      \item $ a < b$ if $b > a$ ($b-a \in P)$
+      \item $ a \geq b$ if $a > b$ or $a = b$
+      \item $ a \leq b$ if $b \geq a$
+    \end{enumerate}
+  }
+  \thm{ 4 } {
+    If $a,b,c$ are R such that $a < b$ and $b < c$, then $a < c$
+    Transitivity of <
+  }
+  \myproof {
+    $ a < b$ means $b-a \in P$
+    $ b < c$ means $c-b \in P$
+
+    By P11, $(b-a + c-b \in P$
+
+    By P4, $(b-a + c-b = (b-a) + (-b+c)$
+
+    By P1, $(b-a + -b + c = (b-a + -b) +c$
+
+    By P4, $(b-a + -b) + c = (b-b-a) +c$
+
+    By P3, = $(0-a) + c$
+
+    By P2 $= -a + c$
+
+    So $(b-a) + (c-b) \in P$, which is the same as $c-a \in P$ by P4
+  }
+
+
+
+
+
+\section*{20230622 - Absolute Values}%
+  \subsection*{Recap}
+    \begin{itemize}
+      \item Poperties P1-P12
+      \item Inequalities
+    \end{itemize}
+
+  \subsection*{Absolute Values}%
+  \dfn{ Absolute Value }{
+    Let a be a real number.  We deffine
+    \[ |a| = a \text{ if } a \geq 0 \]
+    \[ |-a| = a \text{ if } a \leq 0 \]
+  }
+  \ex{} {
+    \[ |7| = 7 \]
+    \[ |-7| = 7 \]
+  }
+  \textbf{Remark}: It is helpful to deal with cases for questions related to absolute values
+
+  \subsection*{Triangle Inequality}%
+  \thm{ Triangle Inequality} {
+    If $x$  and $y$ are real numbers, then
+    \[ |x+y| \leq |x| + |y| \]
+  }
+  \begin{proof}
+    \begin{case}
+      $x \geq 0, y \geq 0$
+
+      Then $|x+y| = x+y$ (Trichototmy for P).  $|x| = x, |y|=y \Rightarrow |x|+|y| = x+y$
+
+      So, $|x+y| = x+y = |x|+|y| \leq |x|+|y|$
+    \end{case}
+    \begin{case}
+      $x \leq 0, y \leq 0$
+
+      Then $|x+y| = -(x+y)$o
+      \[ x \leq 0 \Rightarrow  -x \in \mathbb{R}^+ \]
+      \[ y \leq 0 \Rightarrow  -y \in \mathbb{R}^+ \]
+      so $-x-y = -(x+y) \in \mathbb{R}^+$
+
+      $|x| = -x, |y|=-y$ since $x \leq 0, y \leq 0$
+
+      So, $|x|+|y| = -x + -y = -(x+y)$
+
+      \[ |x+y| = -(x+y) = |x| + |y| \leq |x| + |y| \]
+    \end{case}
+    \begin{case}
+      Assume $x \geq 0, y \leq 0$.  Now, $|x| = x, |y| = -y$
+      \begin{proof}
+        \begin{case}
+          Assume that $x+y \geq 0$.  By assumption $|x+y| = x+y$
+
+          \vdots
+        \end{case}
+        \begin{case}
+          second
+
+        \end{case}
+      \end{proof}
+
+    \end{case}
+    Case 4 : $ x \leq 0, y \geq 0$
+
+    \[ |x+y|=|y+x| (P4) \leq |y|+|x| \text{(by case 3)} = |x| + |y| P(4)\]
+  \end{proof}
+
+  \thm{ $y \leq 0  \leq -y$ } {
+    If $ y \leq 0$, then  $y \leq 0  \leq -y$
+  }
+
+  \ex{} {
+    If $a$ is a real number, then
+    \[ (-1) a = -a \]
+
+    \begin{enumerate}
+      \item Add $a$  to both sides to get $a + (-1) a = a + -a$ = 0 (P2)
+      \item $a = a \cdot 1$ (Identity mult)
+      \item $(-1) \cdot a = a\cdot (-1)$ (Commutativity
+      \item $a+(-1) \cdot a = a(1 + -1) = a \cdot 0 = 0$
+    \end{enumerate}
+  }
+
+  \ex{} {
+    If $x$ is a real number
+    \[ |-x| = |x| \]
+
+    Use abs defn to show $|-x| = |x|$
+  }
+
+  \ex{} {
+    If $x,y$ are reals, then
+      \[ |xy| = |x||y| \]
+
+      4 cases
+      \begin{enumerate}
+        \item $|x| \cdot |y| = xy$ if $x \geq 0, y \geq 0$
+        \item $|x| \cdot |y| = x(-)y$ if $x \geq 0, y \leq 0$
+        \item $|x| \cdot |y| = -x \cdot -y$ if $x \leq 0, y \leq 0$
+        \item $|x| \cdot |y| = (-x)y$ if $x \leq 0, y \geq 0$
+      \end{enumerate}
+      equals
+      \begin{enumerate}
+        \item $xy$ if $x \geq 0, y \geq 0$, etc
+        \item $-xy$ if $x \geq 0, y \leq 0$,  etc
+      \end{enumerate}
+  }
+
+  \subsection*{Chapter 2 - Numbers of Various Sorts}%
+  \subsubsection*{Notation}%
+    \begin{itemize}
+      \item $\mathbb{N} $ : Naturals
+      \item $\mathbb{Z} $ Integers
+      \item $\mathbb{Q} $ RationalsA
+      \item $\mathbb{R}$ : Reals
+    \end{itemize}
+
+    \[ \mathbb{N}   \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \]
+
+    Does $\mathbb{N}  $ saitisfy P1 - P12?  No, missing 2, 3, \& 7
+
+    Does $\mathbb{Z}  $ saitisfy P1 - P12?  No, missing 7
+
+    Does $\mathbb{Q}  $ saitisfy P1 - P12?  YES
+
+    \underline{NOTE} The preoperty that distinguishes $\mathbb{Q} $ from
+    $\mathbb{R}$ is the 13th property
+
+    \underline{NOTE}:  Assume that sqrt(2) exists.  I.e. we can
+    find a solution to $x^2 = 2$
+
+    \thm{$\sqrt{2}$ is irrational}{
+      Suppose for a contradiction that $\sqrt{2}$ is rational.
+      Let $\sqrt{2} = \frac{p}{q} $.  By  cancelling out commen factors
+      from p and q, we can assume p and q not both even.  Then
+      \[ \sqrt{2} = \frac{p}{q} \Rightarrow 2 = \frac{p^2}{q^2}   \]
+      Multiply $q^2$ on both saides to get $2q^2 = p^2$
+    }
+
+    \underline{Plan for Chapter 2}
+    \begin{itemize}
+      \item Different numbers
+      \item $\sqrt{2}$ is irrational
+      \item Proof technique - induction
+    \end{itemize}
+\end{document}
