@@ -1,0 +1,159 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+%\usepackage[margin=1in]{geometry} % This package allows the editing of the page layout. I've set the margins to be 1 inch. 
+
+\usepackage{amsmath, amsfonts}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{marvosym}  % Lightning!
+
+%This allows us to use the theorem and proof environment 
+\usepackage{enumitem}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+
+\newtheoremstyle{case}{}{}{}{}{}{:}{ }{}
+\theoremstyle{case}
+\newtheorem{case}{Case}
+
+%Custom commands.  
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value command
+
+%Custom symbols
+\newcommand{\Rb}{\mathbb{R}}
+
+\begin{document}
+
+\begin{center}
+\Large{\textbf{Assignment \#2}
+            
+UW-Madison MATH 421} % Name of course here
+\vspace{5pt}
+        
+\normalsize{  Guy Matz% Your name here
+        \\ Due: June 25, 2023}
+\vspace{15pt}
+\end{center}
+
+\section*{Exercises}%
+\begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
+\item Prove the following theorem by induction.  
+
+\begin{theorem*}[Bernoulli's inequality] Suppose $n$ is a natural number and $x$ is a real number. If $x > -1$, then 
+$$
+(1+x)^n \geq 1 + nx.
+$$
+\end{theorem*} 
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item Prove the following theorem by Complete induction.  
+
+ \begin{theorem*} Let $a_1,a_2,\dots$ be the sequence where $a_1=2$, $a_2=4$, $a_3=8$, and 
+ $$a_n = a_{n-1}+a_{n-2}+a_{n-3}$$ 
+ when $n \geq 4$. Then $a_n \leq 2^n$ for all $n \geq 1$. 
+ 
+ \end{theorem*}
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item Prove: if $x$ and $y$ are rational numbers, then $xy$ and $x+y$ are rational numbers. 
+
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item Prove: if $x$ is irrational, $y$ is rational, and $y \neq 0$, then $xy$ is irrational. 
+
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item For this problem we need the following definition: 
+  \begin{definition*}[ Divisibility ]{
+    An integer $n$ is \emph{divisible} by an integer $k$ if the ratio $n/k$ is an integer. 
+  \end{definition*}
+  For example: -3, 0, 3, 6 are all divisible by 3 while 1, 2, 4, 5 are not divisible by 3.  Prove the following: 
+
+\begin{theorem*} Suppose $n$ is an integer. If $n^2$ is divisible by $3$, then $n$ is divisible by $3$. 
+
+\end{theorem*}
+\emph{(Hint: if $n$ is not divisible by $3$, then $n=3k+1$ or $n=3k+2$ for some integer $k$.)}
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item Prove that $\sqrt{2}+\sqrt{3}$ and $\sqrt{2}-\sqrt{3}$ are both  irrational numbers.
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item Prove that if $x$ satisfies 
+  \[ x^n+a_{n-1}x^{n-1}+...+a_{0}=0, \]
+  for some integers $a_{n-1},...,a_0$, then $x$ is irrational unless $x$ is an integer (i.e $x$ is rational if and only if it is an integer).
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\item (Optional) Prove the binomial theorem using induction. This states that for all $x,y \in \mathbb{R}$ and $n\geq 1$,
+%  \[ (x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^{r}, \]
+%      where $\binom{n}{r} = \frac{n!}{(n-r)! r!}$. 
+%      \emph{Hint: Assume the fact $\binom{n}{r}+ \binom{n}{r-1} = \binom{n+1}{r}$. If possible, can you give a reasoning for this equality?)}
+
+
+P: 
+Q:
+
+\begin{proof}
+\end{proof} 
+
+\newpage
+\end{enumerate}
+
+\newpage
+
+\section*{Definitions}
+
+\section*{Theorems}
+
+\section*{Properties}
+  \begin{itemize}
+        \item
+  \end{itemize}
+
+\end{document}
