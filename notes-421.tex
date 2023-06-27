@@ -695,4 +695,152 @@
       $a_n = a_{n-1}+2a_{n-2}$ for all $n \geq2$.  Show that
       $a_n = 2^n+(-1)^n$ for all $n \geq 1$
     }
+\section*{20230627 - Induction and Functions}%
+  \subsection*{Complete Induction - Recap}%
+  \begin{itemize}
+    \item Base Case: Either 1 or $n_0$ is true
+    \item Induction Step: If $P(m)$ is true $\forall m \leq k \implies
+      P(k+1)$ is true, then $P(n)$ is true for all $n \in \mathbb{N}$
+      \ex{HOMEWORK from yesterday} {
+        \myproof {~\\
+          \underline{Base Case: } show n=1, n=2
+
+          \underline{Induction Step: } See Picture
+        }
+        
+      }
+  \end{itemize}
+
+  \subsection*{Functions}%
+    \begin{itemize} Plan
+      \item  Notations
+      \item definitions
+    \end{itemize}
+
+    If A and B are sets, then we can define funtions from A to B
+
+    Assume both A and B are the $\mathbb{R}$
+    \dfn{ Function --- Informal }{
+      Rule that assigns (certain) elements in A to elements in B
+    }
+
+    \dfn{ Domain }{
+      All the numbers in $R$ that $f$ assigns a number to it
+
+      Notation --- Dom($f$ )
+
+      $f(x)$ for $x \in $ Dom($f$ ) is the number that $f$ assigns to $x$ 
+
+      \underline{A Function must always contain a Domain}
+    }
+
+    \dfn{ Codomain }{
+      Possible range of values for B, e.g. $\mathbb{R}$
+    }
+    \dfn{ Range }{
+      All values in $g \in \mathbb{R}$ such that there is an $x \in $
+      Dom($f$ ) such that $f(x)=y$
+    }
+    \ex{sin} {
+      \begin{itemize}
+        \item Domain:  $\mathbb{R}$
+        \item Codomain:  $\mathbb{R}$
+        \item Range: $[-1,1]$
+      \end{itemize}
+    }
+    \ex{$f(x) = \frac{1}{x}$ } {
+      \begin{itemize}
+        \item Domain: x, $x \in \mathbb{R}, x \neq 0$
+      \end{itemize}
+    }
+    \subsection{Special Functions}%
+    \begin{itemize}
+      \item Polynomials: A functions from $\mathbb{R} \Rightarrow \mathbb{R}$
+        is called a polynomials function if 
+        \[P(x) = a_nx^n + a_{n-1}x^{n-1} \dots, \forall x \in \mathbb{R}\]
+        for some $a_n, a_{n-1}, \dot, a_0 \in \mathbb{R}$
+
+        Degree of $P$ is $n$, i.e. the highest power of $x$ such that its
+        coeffficient is non-zero
+
+        E.g., $t^2 + t + \pi/2$: degree $p=2$
+      \item Rational 
+        \dfn{ Rational Function}{
+          A function  $f$ is valled a rational function if
+          \[ f(x) = \frac{p(x)}{q(x)}  \]
+          where $p,q$ are polynomial function, and $
+          x \in \{x:x \in \mathbb{R}, q(x) \neq 0  \}$
+        }
+        E.g. $f(t) = \frac{t^2+1}{t^2-1} $.  Domain = $\{t: t \in
+        \mathbb{R}, t \neq \pm 1\}$
+        
+    \end{itemize}
+    \subsection{Operations on Functions}%
+    \begin{itemize}
+      \item Multiply by Constant:  Let $f$ be a function, then we define
+        the function $cf$ ffor some $ c\in \mathbb{R}$ as
+        \[ (cf)(x) = c \cdot(f(x)) \]
+
+        Ex: $f(x) = x \forall x \in \mathbb{R}$, then
+        $(2f)(x) = 2x, \forall x \in \mathbb{R}$
+
+        \underline{Dom(cf) = Dom(f)}
+      \item Addition: If $f$ and $g$ are ffunction, then we define
+        $(f + g)(x)$ as $f(x) + g(x), \forall x \in \text{ Dom }(f)
+        \cap \text{ Dom }(g)$
+
+        Ex: $f = 1/x, g = 1/(x-1), (f+g)(x) = 1/x + 1/(x-1)$
+
+      \item Multiply: If $f$ and $g$ are functions we define
+          \[ (f \cdot g)(x) = f(x) \cdot g(x) \]
+
+          Domain ($f \cdot g) = \text{ Dom }(f) \cap \text{ Dom }(g)$
+
+      \item Divide: If $f$ and $g$ are functions we define
+          \[ (f / g)(x) = f(x) / g(x) \]
+
+          Domain ($f / g) = \text{ Dom }(f) \cap \text{ Dom }(g)
+          \cap \{x: g(x) \neq 0 \}$
+
+      \item Composition: If $f$ and $g$ are functions we define
+          \[ (f \circ g)(x) = f(g(x)) \]
+          Domain ($f \circ g) = \text{ Dom }(g) \cap \{x: g(x) \in
+          \text{ Dom }(f) \}$
+    \end{itemize}
+
+    \dfn{ Function }{
+      A function $f$ is a subset of $\mathbb{R} \times \mathbb{R}$
+      such that if $(a,b) \in f$ and $(a,c) \in f$ then $b=c$
+
+      \underline{Domain}: Dom(f) = $\{ a: (a,b) \in f$, for some
+        $b \in \mathbb{R}$
+
+      \nt{
+        From the definition, it is clear that there is a unique
+        $y \in \mathbb{R}$ subthat $(x,y) \in f$ for $x \in \text{ Dom }
+        (f)$.  We can define this unique $y$ as $f(x)$
+      }
+      \nt{ It is useful to thinkoff functions as rules}
+    }
+
+    \ex{} {
+      Let $f$ amd $g$ be functiond with domain $\mathbb{R}$.  Let
+      this set be F
+      \begin{enumerate}
+        \item Show that $f+g \in F$ and $f \cdot g \in F$
+        \item Define $\theta(x) = 0, \forall x \in \mathbb{R}$.  
+          and  $\theta(x) = 1, \forall x \in \mathbb{R}$.  
+
+
+          Clearly $\theta$ and $\iota \in F$.  Show that $f + \theta = $
+          and $f \cdot \iota = \iota \cdot f \ f$
+
+        \item $g = (F, +, \cdot, \theta, \iota)$.  What properties P1-P9
+          does g satisfy
+        \item $P = \{f: f \in F, f(x)>0 \forall  x \in \mathbb{R}\}$.
+          Does g (from directly above) satisfy P10-P12
+        \item How do we define -f?
+      \end{enumerate}
+    }
+
 \end{document}
