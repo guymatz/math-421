@@ -30,13 +30,13 @@
 \begin{document}
 
 \begin{center}
-\Large{\textbf{Assignment \#2}
+\Large{\textbf{Assignment \#3}
             
 UW-Madison MATH 421} % Name of course here
 \vspace{5pt}
         
 \normalsize{  Guy Matz% Your name here
-        \\ Due: June 25, 2023}
+        \\ Due: June 29, 2023}
 \vspace{15pt}
 \end{center}
 
@@ -44,17 +44,34 @@ UW-Madison MATH 421} % Name of course here
 \begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
 \item Prove the following theorem by induction.  
 
-\begin{theorem*}[Bernoulli's inequality] Suppose $n$ is a natural number and $x$ is a real number. If $x > -1$, then 
-$$
-(1+x)^n \geq 1 + nx.
-$$
+\begin{theorem*}[Bernoulli's inequality] Suppose $n$ is a natural
+  number and $x$ is a real number. If $x > -1$, then 
+  \[ (1+x)^n \geq 1 + nx \]
+
 \end{theorem*} 
 
-P: 
-Q:
+  \proof {~\\
+    \underline{Base Case: } With $n=1$,
+    \begin{align*}
+      (1 + x)^1 &\geq 1 + x \\
+      1 + x &\geq 1 + x
+    \end{align*}
 
-\begin{proof}
-\end{proof} 
+    \underline{Induction Step: } Assuming $(1+x)^n \geq 1 + nx $, we want
+    to show 
+    \[ (1+x)^{n+1} \geq 1 + (n+1) \cdot x \]
+    This is equal to 
+      \[ (1+x) \cdot (1+x)^n \geq 1 + n \cdot x  + x\]
+      Dividing by $(1+x)$ we get 
+      \[ (1+x)^n \geq \frac{1}{1+x} + \frac{n+1}{1+x} \cdot \frac{x}{1+x} \]
+      And now we can show that
+        \[ 1 + n x  \geq \frac{1}{1+x} + \frac{n+1}{1+x} \cdot \frac{x}{1+x} \]
+        Multiplying by $(1+x)$ on both sides we get
+        \[ 1 + x^2 + (n+1) x  \geq 1 + (n+1) \cdot x \]
+        Which reduces to
+        \[ x^2 \geq 0 \]
+  }
+  
 
 \newpage
 \item Prove the following theorem by Complete induction.  
@@ -74,11 +91,18 @@ Q:
 \newpage
 \item Prove: if $x$ and $y$ are rational numbers, then $xy$ and $x+y$ are rational numbers. 
 
-
-P: 
-Q:
+P: $x, y \in \mathbb{Q}$\\
+Q: $xy, x+y \in \mathbb{Q}$
 
 \begin{proof}
+
+  If $x, y \in \mathbb{Q} $ then there exists $a,b,j,k \in \mathbb{Z} $
+  such that $x = \frac{a}{b}, y = \frac{j}{k} $
+
+  Then $xy = \frac{a}{b} \cdot \frac{j}{k}$, which is rational
+
+  And $x+y = \frac{a}{b} + \frac{j}{k} = \frac{ak + jb}{bk} $, which is
+  rational.
 \end{proof} 
 
 \newpage
@@ -93,7 +117,7 @@ Q:
 
 \newpage
 \item For this problem we need the following definition: 
-  \begin{definition*}[ Divisibility ]{
+  \begin{definition*}[ Divisibility ]
     An integer $n$ is \emph{divisible} by an integer $k$ if the ratio $n/k$ is an integer. 
   \end{definition*}
   For example: -3, 0, 3, 6 are all divisible by 3 while 1, 2, 4, 5 are not divisible by 3.  Prove the following: 
