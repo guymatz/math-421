@@ -71,7 +71,6 @@ UW-Madison MATH 421} % Name of course here
         Which reduces to
         \[ x^2 \geq 0 \]
   }
-  
 
 \newpage
 \item Prove the following theorem by Complete induction.  
@@ -96,24 +95,37 @@ Q: $xy, x+y \in \mathbb{Q}$
 
 \begin{proof}
 
-  If $x, y \in \mathbb{Q} $ then there exists $a,b,j,k \in \mathbb{Z} $
-  such that $x = \frac{a}{b}, y = \frac{j}{k} $
+  If $x, y \in \mathbb{Q} $ then there exists $\{ \{a,b,j,k\} \in \mathbb{Z}: b,k \neq 0 \}$
+such that 
+  \[x = \frac{a}{b}, y = \frac{j}{k} \]
 
-  Then $xy = \frac{a}{b} \cdot \frac{j}{k}$, which is rational
+  Then $xy = \frac{a}{b} \cdot \frac{j}{k} = \frac{aj}{bk} $ is rational
+  since the multiplication of two integers is an integer.
 
   And $x+y = \frac{a}{b} + \frac{j}{k} = \frac{ak + jb}{bk} $, which is
-  rational.
+  rational, since $bk \neq 0$ and the addition and multiplication 
+  of integers is an integer.
 \end{proof} 
 
 \newpage
 \item Prove: if $x$ is irrational, $y$ is rational, and $y \neq 0$, then $xy$ is irrational. 
 
 
-P: 
-Q:
+P: $x \in \mathbb{I} \wedge y \in \mathbb{Q} \wedge y \neq 0$ \\
+Q: $xy \in \mathbb{I}$
 
-\begin{proof}
+\renewcommand\qedsymbol{\Lightning}
+\begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+  let's assume that $x \notin \mathbb{I}$.  Then we want to show that
+  $x \notin \mathbb{I} \wedge xy \in \mathbb{I}$ leads to a
+  contradiction.
+
+  If both $x,y \in \mathbb{Q} $ then there exists $\{ \{a,b,j,k\} \in \mathbb{Z}: b,k \neq 0 \}$ such that
+    \[x = \frac{a}{b}, y = \frac{j}{k} \]
+  Then $xy = \frac{a}{b} \cdot \frac{j}{k} = \frac{aj}{bk} $.  But this
+  is rational since the multiplication of two integers is an integer.
 \end{proof} 
+\renewcommand\qedsymbol{$\square$}
 
 \newpage
 \item For this problem we need the following definition: 
