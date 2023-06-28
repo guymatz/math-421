@@ -63,8 +63,8 @@ UW-Madison MATH 421} % Name of course here
     This is equal to 
       \[ (1+x) \cdot (1+x)^n \geq 1 + n \cdot x  + x\]
       Dividing by $(1+x)$ we get 
-      \[ (1+x)^n \geq \frac{1}{1+x} + \frac{n+1}{1+x} \cdot \frac{x}{1+x} \]
-      And now we can show that
+      \[ (1+x)^n \geq \frac{1}{1+x} + \frac{1+n}{1+x} \cdot \frac{x}{1+x} \]
+      And since we know that $(1+x)^n \geq 1 + nx $, we can show that
         \[ 1 + n x  \geq \frac{1}{1+x} + \frac{n+1}{1+x} \cdot \frac{x}{1+x} \]
         Multiplying by $(1+x)$ on both sides we get
         \[ 1 + x^2 + (n+1) x  \geq 1 + (n+1) \cdot x \]
@@ -139,21 +139,41 @@ Q: $xy \in \mathbb{I}$
 \end{theorem*}
 \emph{(Hint: if $n$ is not divisible by $3$, then $n=3k+1$ or $n=3k+2$ for some integer $k$.)}
 
-P: 
-Q:
+P: $ 3 | n^2 $\\
+Q:  $ 3 | n $
 
-\begin{proof}
+\renewcommand\qedsymbol{\Lightning}
+\begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+  let's assume that \[ 3 \not| n^2 \]
+  Then, for some integer $k$, $n^2 = 3k + 1$ or $n^2 = 3k + 2$. (DO I
+  NEED THIS?  SHOULD I BE USING THIS FOR A DIFFERENT PROOF TECHNIQUE?)
+
+  We also know that $3 | n$, so there is some integer, $m$ such that
+  $n = 3m$. Multiplying the left side by n, and the right side by $3m$
+  we get $n^2 = 3^2m^2 = 3(3m^3)$, which is surely divisble by 3.  But
+  we said that  $ 3 \not| n^2 $!
+
 \end{proof} 
+\renewcommand\qedsymbol{$\square$}
 
 \newpage
-\item Prove that $\sqrt{2}+\sqrt{3}$ and $\sqrt{2}-\sqrt{3}$ are both  irrational numbers.
+\item Prove that $\sqrt{2}+\sqrt{3}$ and $\sqrt{2}-\sqrt{3}$ are both
+  irrational numbers.
 
 P: 
 Q:
 
-\begin{proof}
+\renewcommand\qedsymbol{\Lightning}
+\begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+  Let's assume that $\sqrt{2}+\sqrt{3} \in \mathbb{Q}$.
+  Then there exists $m,n,p,q \in \mathbb{Z} $ such that $\frac{m}{n}
+  = \sqrt{2}$, and $\frac{p}{q} = \sqrt{3}$ and gcd$(m,n)$=gcd$(p,q) =1$.
+  Then 
+  \[ \frac{m}{n} + \frac{p}{q} = \sqrt{2}+\sqrt{3} \]
+  and
+  \[ \left( \frac{m}{n} \right)^2 + \left( \frac{p}{q} \right)^2 = 2+3 \]
 \end{proof} 
-
+\renewcommand\qedsymbol{$\square$}
 \newpage
 \item Prove that if $x$ satisfies 
   \[ x^n+a_{n-1}x^{n-1}+...+a_{0}=0, \]
