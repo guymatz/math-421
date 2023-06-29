@@ -179,12 +179,15 @@ Q:
   \[ x^n+a_{n-1}x^{n-1}+...+a_{0}=0, \]
   for some integers $a_{n-1},...,a_0$, then $x$ is irrational unless $x$ is an integer (i.e $x$ is rational if and only if it is an integer).
 
-P: 
-Q:
+P: x satisfies $x^n+a_{n-1}x^{n-1}+...+a_{0}=0$ ,for some integers $a_{n-1},...,a_0$
+Q: $x \in \mathbb{I} \vee x \in \mathbb{Z} $
 
-\begin{proof}
-\end{proof} 
-
+  \renewcommand\qedsymbol{\Lightning}
+  \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+    Let's assume that there is some rational number, $x = p/q$, where
+    gcd($p,q) = 1$, which is a solution to this equation.
+  \end{proof} 
+  \renewcommand\qedsymbol{$\square$}
 \newpage
 \item (Optional) Prove the binomial theorem using induction. This states that for all $x,y \in \mathbb{R}$ and $n\geq 1$,
 %  \[ (x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^{r}, \]
