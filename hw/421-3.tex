@@ -36,7 +36,7 @@ UW-Madison MATH 421} % Name of course here
 \vspace{5pt}
         
 \normalsize{  Guy Matz% Your name here
-        \\ Due: June 29, 2023}
+        \\ Due: June 30, 2023}
 \vspace{15pt}
 \end{center}
 
@@ -44,13 +44,12 @@ UW-Madison MATH 421} % Name of course here
 \begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
 \item Prove the following theorem by induction.  
 
-\begin{theorem*}[Bernoulli's inequality] Suppose $n$ is a natural
-  number and $x$ is a real number. If $x > -1$, then 
-  \[ (1+x)^n \geq 1 + nx \]
+  \begin{theorem*}[Bernoulli's inequality] Suppose $n$ is a natural
+    number and $x$ is a real number. If $x > -1$, then 
+    \[ (1+x)^n \geq 1 + nx \]
+  \end{theorem*} 
 
-\end{theorem*} 
-
-  \proof {~\\
+  \begin{proof}
     \underline{Base Case: } With $n=1$,
     \begin{align*}
       (1 + x)^1 &\geq 1 + x \\
@@ -70,7 +69,7 @@ UW-Madison MATH 421} % Name of course here
         \[ 1 + x^2 + (n+1) x  \geq 1 + (n+1) \cdot x \]
         Which reduces to
         \[ x^2 \geq 0 \]
-  }
+      \end{proof}
 
 \newpage
 \item Prove the following theorem by Complete induction.  
@@ -81,11 +80,31 @@ UW-Madison MATH 421} % Name of course here
  
  \end{theorem*}
 
-P: 
-Q:
+  \begin{proof}
+    \underline{Base Case: } 
+    \begin{align*}
+      2^4 &= 16 \geq a_4 = a_3 + a_2 + a_1 = 8 + 4 + 2 = 14\\
+      2^5 &= 32 \geq a_5 = a_4 + a_3 + a_2 = 14 + 8 + 4 = 26 \\
+      2^6 &= 64 \geq a_6 = a_5 + a_4 + a_3  = 26 + 14 + 8 = 48
+    \end{align*}
 
-\begin{proof}
-\end{proof} 
+    \underline{Induction Step: } Let's assume the hypothesis holds for
+    k:
+    \begin{align*}
+      2^{k-2} &\geq a_{k-2} = a_{k-3} + a_{k-4} + a_{k-5} \\
+      2^{k-1} &\geq a_{k-1} = a_{k-2} + a_{k-3} + a_{k-4} \\
+      2^{k} &\geq a_{k} = a_{k-1} + a_{k-2} + a_{k-3}
+    \end{align*}
+    So we need to show that
+    \[ 2^{k+1} \geq a_{k} + a_{k-1} + a_{k-2} \]
+    Subtracting $2^k$ from both sides we get
+    \[ 2^{k+1} - 2^k \geq a_{k} + a_{k-1} + a_{k-2} -2^k \]
+    \[ 2^k \geq a_{k} + a_{k-1} + a_{k-2} - 2^k\]
+    But we know that $2^k \geq a_{k} + a_{k-1} + a_{k-2} $ so
+    \[ 2^k \geq 0 \geq a_{k} + a_{k-1} + a_{k-2} - 2^k\]
+
+  \end{proof}
+  
 
 \newpage
 \item Prove: if $x$ and $y$ are rational numbers, then $xy$ and $x+y$ are rational numbers. 
@@ -142,14 +161,34 @@ Q: $xy \in \mathbb{I}$
 P: $ 3 | n^2 $\\
 Q:  $ 3 | n $
 
+\begin{proof}[\textbf{Proof By Contrapositive}]
+  Assuming that $3 \not| n$ we want to show that $3 \not| n^2$.
+
+  So, for some integer $k$, we know what either $n = 3k + 1$ or $n=3k + 2$.
+    \begin{case}
+      $n = 3k + 1$ 
+
+      If $n=3k+1$, then
+      \[ $n^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1\]
+      This , by our definition, is not divisble by 3
+
+    \end{case}
+    \begin{case}
+      $n = 3k + 2$
+
+      If $n=3k+2$, then
+      \[ n^2 = 9k^2 + 12k + 4 = 3(3k^2 + 4k + 1) + 1 \]
+      But this too is not divisble by 3.
+    \end{case}
+
+\end{proof}
+
 \renewcommand\qedsymbol{\Lightning}
 \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
   let's assume that \[ 3 \not| n^2 \]
-  Then, for some integer $k$, $n^2 = 3k + 1$ or $n^2 = 3k + 2$. (DO I
-  NEED THIS?  SHOULD I BE USING THIS FOR A DIFFERENT PROOF TECHNIQUE?)
 
-  We also know that $3 | n$, so there is some integer, $m$ such that
-  $n = 3m$. Multiplying the left side by n, and the right side by $3m$
+  We also know that $3 | n$, so there is some integer, $k$ such that
+  $n = 3m$. Multiplying both sides by $3m$
   we get $n^2 = 3^2m^2 = 3(3m^3)$, which is surely divisble by 3.  But
   we said that  $ 3 \not| n^2 $!
 
@@ -165,9 +204,11 @@ Q:
 
 \renewcommand\qedsymbol{\Lightning}
 \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
-  Let's assume that $\sqrt{2}+\sqrt{3} \in \mathbb{Q}$.
-  Then there exists $m,n,p,q \in \mathbb{Z} $ such that $\frac{m}{n}
-  = \sqrt{2}$, and $\frac{p}{q} = \sqrt{3}$ and gcd$(m,n)$=gcd$(p,q) =1$.
+  let's assume that either, but not both, $\{\sqrt{2}+\sqrt{3},
+  \sqrt{2}-\sqrt{3} \} \in \mathbb{Q}$.  Let's say $\sqrt{2}+\sqrt{3} 
+  \in \mathbb{Q} $.
+  Then there exists $m,n \in \mathbb{Z} $ such that $\frac{m}{n}
+  = \sqrt{2} + \sqrt{3}$, with gcd$(m,n)$=1.
   Then 
   \[ \frac{m}{n} + \frac{p}{q} = \sqrt{2}+\sqrt{3} \]
   and
@@ -186,6 +227,33 @@ Q: $x \in \mathbb{I} \vee x \in \mathbb{Z} $
   \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
     Let's assume that there is some rational number, $x = p/q$, where
     gcd($p,q) = 1$, which is a solution to this equation.
+
+    The equation becomes
+    \[
+      \left( \frac{p}{q}\right) ^n
+        + a_{n-1}\left( \frac{p}{q}\right) ^{n-1}
+        + \dots + a_{1}\left( \frac{p}{q}\right)^{1}
+        + a_0 = 0
+      \]
+      Moving $a_0$, we get 
+    \[
+      \left( \frac{p}{q}\right) ^n
+        + a_{n-1}\left( \frac{p}{q}\right) ^{n-1}
+        + \dots + a_{1}\left( \frac{p}{q}\right)^{1}
+        = - a_0
+      \]
+      Factoring out $\left( \frac{p}{q} \right)^n$ we have
+    \[
+      \left( \frac{p}{q}\right) ^n \left(
+        a_{n-1}\left( \frac{p}{q}\right) ^{-1}
+        + \dots +
+        a_{1}\left( \frac{p}{q}\right)^{1-n}
+        \right)
+        = - a_0
+      \]
+      However, since $a_0 \in \mathbb{Z} , \left( \frac{p}{q} \right)^n$
+       divides  $a_0$, $\left( \frac{p}{q} \right)^n$ must be an integer.
+
   \end{proof} 
   \renewcommand\qedsymbol{$\square$}
 \newpage
