@@ -121,8 +121,8 @@ such that
   Then $xy = \frac{a}{b} \cdot \frac{j}{k} = \frac{aj}{bk} $ is rational
   since the multiplication of two integers is an integer.
 
-  And $x+y = \frac{a}{b} + \frac{j}{k} = \frac{ak + jb}{bk} $, which is
-  rational, since $bk \neq 0$ and the addition and multiplication 
+  And $x+y = \frac{a}{b} + \frac{j}{k} = \frac{ak + jb}{bk}$ is
+  rational since $bk \neq 0$, and the addition and multiplication 
   of integers is an integer.
 \end{proof} 
 
@@ -131,18 +131,28 @@ such that
 
 
 P: $x \in \mathbb{I} \wedge y \in \mathbb{Q} \wedge y \neq 0$ \\
-Q: $xy \in \mathbb{I}$
+$\neg P: x \notin \mathbb{I} \vee y \notin \mathbb{Q} \vee y = 0$ \\
+Q: $xy \in \mathbb{I}$ \\
+$\neg Q: xy \notin \mathbb{I}$
 
 \renewcommand\qedsymbol{\Lightning}
 \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
-  let's assume that $x \notin \mathbb{I}$.  Then we want to show that
-  $x \notin \mathbb{I} \wedge xy \in \mathbb{I}$ leads to a
+  let's assume that $x \notin \mathbb{I}$.  Then we want to show 
+  $\neg Q \wedge P \implies \neg P$.  I.e.,
+  $xy \notin \mathbb{I} \wedge x \in \mathbb{I} $ leads to a
   contradiction.
 
-  If both $x,y \in \mathbb{Q} $ then there exists $\{ \{a,b,j,k\} \in \mathbb{Z}: b,k \neq 0 \}$ such that
-    \[x = \frac{a}{b}, y = \frac{j}{k} \]
-  Then $xy = \frac{a}{b} \cdot \frac{j}{k} = \frac{aj}{bk} $.  But this
-  is rational since the multiplication of two integers is an integer.
+  Since $y \in \mathbb{Q}$ then there exists $\{ p,q \in \mathbb{Z}: \}$
+  such that
+    \[y = \frac{p}{q} \]
+  And, Since $xy \in \mathbb{Q}$, there exists $\{ m,n \in \mathbb{Z}: \}$
+  such that
+    \[ xy = x \cdot \frac{p}{q} = \frac{m}{n} \]
+  And so,
+  \[ x = \frac{mq}{pn} \] 
+  But then $\frac{mq}{pn}$ is rational since the multiplication of two
+  integers is an integer.  So $x$ must be irrational.
+
 \end{proof} 
 \renewcommand\qedsymbol{$\square$}
 
@@ -169,7 +179,7 @@ Q:  $ 3 | n $
       $n = 3k + 1$ 
 
       If $n=3k+1$, then
-      \[ $n^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1\]
+%      \[ $n^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1\]
       This , by our definition, is not divisble by 3
 
     \end{case}
@@ -188,8 +198,8 @@ Q:  $ 3 | n $
   let's assume that \[ 3 \not| n^2 \]
 
   We also know that $3 | n$, so there is some integer, $k$ such that
-  $n = 3m$. Multiplying both sides by $3m$
-  we get $n^2 = 3^2m^2 = 3(3m^3)$, which is surely divisble by 3.  But
+  $n = 3k$. Squaring both sides by 
+  we get $n^2 = 3^2k^2 = 3(3k^3)$, which is surely divisble by 3.  But
   we said that  $ 3 \not| n^2 $!
 
 \end{proof} 
@@ -205,14 +215,20 @@ Q:
 \renewcommand\qedsymbol{\Lightning}
 \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
   let's assume that either, but not both, $\{\sqrt{2}+\sqrt{3},
-  \sqrt{2}-\sqrt{3} \} \in \mathbb{Q}$.  Let's say $\sqrt{2}+\sqrt{3} 
-  \in \mathbb{Q} $.
-  Then there exists $m,n \in \mathbb{Z} $ such that $\frac{m}{n}
-  = \sqrt{2} + \sqrt{3}$, with gcd$(m,n)$=1.
+  \sqrt{2}-\sqrt{3} \} \in \mathbb{Q}$.  Let's say $x = 
+  \sqrt{2}+\sqrt{3} \in \mathbb{Q}, y = \sqrt{2}+\sqrt{3} \in \mathbb{I}$.
+  Then there exists $m,n \in \mathbb{Z} $ such that $\frac{m}{n} = x
+  = \sqrt{2} + \sqrt{3}$.
   Then 
-  \[ \frac{m}{n} + \frac{p}{q} = \sqrt{2}+\sqrt{3} \]
+  \[  xy = \frac{m}{n} \cdot y \]
+  And
+  \[  (\sqrt{2}+\sqrt{3}) \cdot (\sqrt{2}-\sqrt{3})  = -1 \]
+  Hence,
+  \[  \frac{m}{n} \cdot y  = -1 \]
   and
-  \[ \left( \frac{m}{n} \right)^2 + \left( \frac{p}{q} \right)^2 = 2+3 \]
+  \[  \cdot y  = -\frac{n}{m}  \]
+  But we said that $y$ is irrational!!
+
 \end{proof} 
 \renewcommand\qedsymbol{$\square$}
 \newpage
@@ -235,7 +251,7 @@ Q: $x \in \mathbb{I} \vee x \in \mathbb{Z} $
         + \dots + a_{1}\left( \frac{p}{q}\right)^{1}
         + a_0 = 0
       \]
-      Moving $a_0$, we get 
+      Subtracting $a_0$, we get 
     \[
       \left( \frac{p}{q}\right) ^n
         + a_{n-1}\left( \frac{p}{q}\right) ^{n-1}
@@ -245,23 +261,51 @@ Q: $x \in \mathbb{I} \vee x \in \mathbb{Z} $
       Factoring out $\left( \frac{p}{q} \right)^n$ we have
     \[
       \left( \frac{p}{q}\right) ^n \left(
-        a_{n-1}\left( \frac{p}{q}\right) ^{-1}
+        1 + a_{n-1}\left( \frac{p}{q}\right) ^{-1}
         + \dots +
         a_{1}\left( \frac{p}{q}\right)^{1-n}
         \right)
         = - a_0
       \]
-      However, since $a_0 \in \mathbb{Z} , \left( \frac{p}{q} \right)^n$
-       divides  $a_0$, $\left( \frac{p}{q} \right)^n$ must be an integer.
+      And now we multiply both sides by $q^n$ and mu;ltiply by $p^n$
+      on the lefft to getto get 
+    \[
+        p^n + a_{n-1}p^{n-1}q
+        + \dots +
+        a_{1} p q^{n-1}
+        + a_0 q^n  = 0
+      \]
+      And factoring out $p$ we get
+    \[
+        p^n + q ( a_{n-1}p^{n-1}
+        + \dots +
+        a_{1} p q^{n-2}
+        + a_0 q^{n-1} )  = 0
+      \]
+      Alright!  Now we're getting close to our contradiction!  Now
+      we say
+      \[ m = 
+        a_{n-1}p^{n-1}
+        + \dots +
+        a_{1} p q^{n-2}
+        + a_0 q^{n-1}
+      \]
+      $m$ is an integer because it's the product of integer.
+      So we have $p^n = -qm$, or $\frac{p^2}{q} = -m$.
+      OK, OK!  So remember how we said that gcd($p,q)=1$?  Well
+      then how can $\frac{p^2}{q}$ be equal to an integer?!  It can't!
+      BAM!
 
   \end{proof} 
   \renewcommand\qedsymbol{$\square$}
 \newpage
 \item (Optional) Prove the binomial theorem using induction. This states that for all $x,y \in \mathbb{R}$ and $n\geq 1$,
-%  \[ (x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^{r}, \]
-%      where $\binom{n}{r} = \frac{n!}{(n-r)! r!}$. 
-%      \emph{Hint: Assume the fact $\binom{n}{r}+ \binom{n}{r-1} = \binom{n+1}{r}$. If possible, can you give a reasoning for this equality?)}
+  \[ (x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^{r}, \]
+      where $\binom{n}{r} = \frac{n!}{(n-r)! r!}$. 
 
+    \emph{Hint: Assume the fact }
+    \[ \binom{n}{r}+ \binom{n}{r-1} = \binom{n+1}{r} \]
+    If possible, can you give a reasoning for this equality?)
 
 P: 
 Q:

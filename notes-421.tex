@@ -103,7 +103,7 @@
 
 \section*{20230620 - Proof Techniques}%
   \begin{itemize}
-    \item Theorems are off the for $P \Longrightarrow Q$
+    \item Theorems are of the form $P \Longrightarrow Q$
     \item Proof by Cases
 
       Divide P into multiple cases
@@ -970,5 +970,206 @@
       \[ x \approx a, f(x) \approx L \]
       \[ x \approx a, f(x) \approx M \]
       Then $L \approx M$
+
+\newpage
+\section*{Theorems \& Notes}%
+    \subsection{Logical Arguments}%
+    Converse: $Q \Longrightarrow P$ \\
+    Contrapositive: $\neg Q \Longrightarrow \neg P$\\
+    Contradiction: $ \neg Q \wedge P \Longrightarrow \neg P $
+
+    \subsection{Proof Types}%
+    \begin{itemize}
+    \item $P \Longrightarrow Q$ is logically equivalent to its contrapositive $(\neg Q \Longrightarrow \neg P)$
+    \item Proof by Cases
+      Divide P into multiple cases
+    \item Proof by Contrapositive
+      $P \Longrightarrow Q $ is equivalent to $\neg Q \Longrightarrow \neg P$
+      Start the proof by stating "Proof by contrapositive: Assume $\neg Q$
+      and we will show that $\neg P$ is true
+
+    \item Proof by Contradiction
+      Assume that Q is not true.  Then we want to reach a contradiction
+        \[ \neg Q \wedge P \Longrightarrow \neg P \]
+      Start the proof by saying "Proof by contradiction:  Assume that
+      Q is not true ... "  or "Assume for a contradiction that Q is not
+      true"
+    \end{itemize}
+
+    \subsection*{The First 4 Properties (for addition)}%
+      \begin{enumerate}
+        \item[P1]: Additive Associativyy - $a + (b+c) = (a+b)+c$
+        \item[P2]: Additive Identity - $a + 0 = 0+a = a$
+        \item[P3]: Additive Inverse-For all real number $a$ there exists
+          a $-a$ such that $a + -a = 0$
+        \item[P4]: Commutativity of Additive - $a+b = b+a$ or all real
+          numbers $a,  b$
+      \end{enumerate}
+
+      \ex{} {
+        \thm{ 1 } {
+          Suppose $a$ and $x$ are real numbers, then $a+x=a \Rightarrow x=0$
+        }
+        \myproof {
+          Add $-a$ (P3) to both sides of the equation.  Then
+          $-a+(a+x) = -a + a = 0$ by P3.  Now,
+          $-a+(a+x) = (-a+a)+x) (P1) = 0 + x (defn) = x (P2)$.
+          By comparing (1) and (2) you get x=0
+        }
+
+        \myproof {
+          Suppose that $a+x=a$.  We know that
+          0 = -a + a (P3) \\
+          = -a + (a+x) by assupmption\\
+          =(-a+a)+x (P1)\\
+          = 0 +x (P1)\\
+          = x (P2)
+        }
+      }
+
+    \dfn{ Subtraction }{
+      Using P3 we define subtraction For real numbers $a,b$
+
+      We define $a-b=a+-b$
+    }
+
+    \subsection*{The Properties for Multiplication}%
+      \begin{enumerate}
+        \item[P5]: Associativy - $a + (b+c) = (a+b)+c$
+        \item[P6]: Identity - $a \cdot 1 = 1 \cdot a = a$
+        \item[P7]: Multiplicative Inverse - Suppose $a \neq 0$, thn
+          there exists a real number $a^{-1}$ such that
+          $a \cdot a^{-1} = a^{-1} \cdot a = 1$
+        \item[P8]: Commutativity - $a \cdot b = b \cdot$
+          for any two real number $a,b$
+
+      \thm{ } {
+        Suppose $a,b,c$ are real numbers such that {**}$a \cdot b=a \cdot c$
+        and $a \neq 0$, then $b = c$
+      }
+
+      \dfn{ Division }{
+        Using multiplicative inverse, suppose $b \neq 0$, then $a/b = a \cdot b^{-1}$
+      }
+        \item[P9]: Distributivity -
+          $a \cdot (b +c) = a \cdot b  + a \cdot c$
+          for any real numbers $a,b,c$
+
+          \thm{ 3 } {
+            Suppose $a$ is a real number, then $a \cdot 0 = 0$ and
+            $0 \cdot a = 0$
+          }
+
+      \thm{ 4 } {
+        Suppose a,b are real numbers st $ab=0$, then either a=0 or b=0
+      }
+      \begin{proof}
+        \begin{case}
+          Suppose a = 0, then we are done
+        \end{case}
+        \begin{case}
+          Suppose $a \neq 0$, then P7 gives $a^{-`}$.
+          By premultiplying $a^{-1}$ to the eqn
+          $a^{-1}(a b) = a^{-1}(ab) = a ^{-1}0.
+          By P5 a index(ab) = (a ^{-1} a) b$.  By P7 $a ^{-1} a = 1$.
+          By Thm 3 $a ^{-1} 0 = 0$.  By P6 $a b = b$, so $b=0$
+
+        \end{case}
+      \end{proof}
+
+    \underline{3 Properties of Positive Numbers}
+    \item[P10] For every real number $a$ , exactly one of the following
+      holds
+      \begin{enumerate}
+        \item $a=0$
+        \item $a \in P$
+        \item $-a \in P$
+      \end{enumerate}
+    \item[P11]: If $a,b \in P$ then $a+b \in P$
+    \item[P12] If $a,b \in P$ then $a \cdot b \in P$
+  \end{enumerate}
+
+  P10 - P11 allows us to define inequalities
+  \dfn{ Inequalities }{
+    \begin{enumerate}
+      \item $ a> b$ if $a-b \in P$
+      \item $ a < b$ if $b > a$ ($b-a \in P)$
+      \item $ a \geq b$ if $a > b$ or $a = b$
+      \item $ a \leq b$ if $b \geq a$
+    \end{enumerate}
+  }
+  \thm{ Transitivity of < } {
+    If $a,b,c$ are R such that $a < b$ and $b < c$, then $a < c$
+    Transitivity of <
+  }
+  \myproof {
+    $ a < b$ means $b-a \in P$
+    $ b < c$ means $c-b \in P$
+
+    By P11, $(b-a + c-b \in P$
+
+    By P4, $(b-a + c-b = (b-a) + (-b+c)$
+
+    By P1, $(b-a + -b + c = (b-a + -b) +c$
+
+    By P4, $(b-a + -b) + c = (b-b-a) +c$
+
+    By P3, = $(0-a) + c$
+
+    By P2 $= -a + c$
+
+    So $(b-a) + (c-b) \in P$, which is the same as $c-a \in P$ by P4
+  }
+
+  \dfn{ Absolute Value }{
+    Let a be a real number.  We deffine
+    \[ |a| = a \text{ if } a \geq 0 \]
+    \[ |-a| = a \text{ if } a \leq 0 \]
+    \textbf{Remark}: It is helpful to deal with cases for questions related to absolute values
+  }
+
+  \thm{ Triangle Inequality} {
+    If $x$  and $y$ are real numbers, then
+    \[ |x+y| \leq |x| + |y| \]
+  }
+
+  \thm{ $x+y$ is irrational } {
+    If $x$ is irratinoal and $y$ is rational, $x+y$ is irrational
+  }
+  \renewcommand\qedsymbol{\Lightning}
+  \begin{proof}[\textbf{Proof by contradiction}]  
+    So, if $x+y$ is ratinal, then $x+y = 2 \Rightarrow $ rational  implies $x = 2-y$
+  \end{proof} 
+  \renewcommand\qedsymbol{$\square$}
+
+  \thm{ Well-Ordering Principle } {
+    Every non-empty subset of natural numbers has a least (smallest)
+    element
+  }
+
+  \subsection{Limits}%
+  
+  \dfn{ Limit }{
+    body
+  }
+  \thm{ title } {
+    body 
+  }
+
+  \nt{
+    \underline{Proof Template - Limits}
+  }
+
+  \subsection{Continuity}%
+  \dfn{ Continuity }{
+    body
+  }
+  \thm{ Continuity } {
+    body 
+  }
+
+  \nt{
+    \underline{Proof Template - Continuity}
+  }
 
 \end{document}
