@@ -1,0 +1,231 @@
+% This is a template for doing homework assignments in LaTeX, cribbed from M. Frenkel (NYU) and A. Hanhart (UW-Madison)
+
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage[margin=1in]{geometry} % This package allows the editing of the page layout. I've set the margins to be 1 inch. 
+
+\usepackage{amsmath, amsfonts}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+
+\usepackage{graphicx}  % This package allows the importing of images
+
+
+%This allows us to use the theorem and proof environment 
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+
+%Custom commands.  
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value command
+
+%Custom symbols
+\newcommand{\Rb}{\mathbb{R}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+\Large{\textbf{Assignment \#4}
+            
+UW-Madison MATH 421} 
+\vspace{5pt}
+        
+\normalsize{  Guy Matz% Your name here
+        
+Due: July 6, 2023}   
+\vspace{15pt}
+        
+\end{center}
+
+
+
+
+\noindent\fbox{\textbf{Exercise \#1:}} Prove, using only the definition, that $\lim_{x \rightarrow 3} 5x+1 = 16$. 
+
+\begin{proof} 
+
+    \[ \delta = \frac{\epsilon}{5} \]
+  Since $\epsilon>0$, we have $\delta > 0$.  Now, for exery $x$, the
+  expression $0 < |x-a| < \delta$ implies that
+  $|x-3| < \frac{\epsilon}{5}$.  Therefore, 
+    \[ \lim_{x \to 3} 5x+1 = 16  \]
+
+\end{proof} 
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#2:}} Prove, using only the definition, that $\lim_{x \rightarrow 2} x^2+2x+1 = 9$. 
+
+\begin{proof} 
+  Suppose $\epsilon>0$ has been provided.  Choose
+    \[ \delta = min(1, \frac{\epsilon}{7} ) \]
+    Then 
+    \begin{align*}
+      |x-2| < \delta &\implies |f(x) - 9| \\
+                &= |x^2 + 2x + 1 -9| \\
+                &= |(x+4)(x-2)| \\
+                &\leq (|x-2|+6)(|x-2|) \\
+                &\leq (1 + 6) \frac{\epsilon}{7} = \epsilon
+    \end{align*}
+\end{proof} 
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#3:}} Prove: If $\lim_{x \rightarrow a} f(x) = L$ and $c \in \Rb$, then $\lim_{x \rightarrow a} (cf)(x) = cL$. 
+
+\begin{proof} 
+  If we fix our $\delta$ to be $\frac{\epsilon}{|c|}$ then our limit 
+  becomes
+    \[ |x-a| < \delta \implies |f(x)  -L| < \epsilon  \]
+    \[ |x-a| < \delta \implies |f(x)  -L| < |\frac{\epsilon}{|c|}  \]
+    Multiplying by c on the right yields
+    \[ |x-a| < \delta \implies |c \cdot f(x)  -cL| < \epsilon  \]
+    Which is out definition of the limit.
+
+\end{proof} 
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#4:}} Prove: If $x, y \in \Rb$, then $\abs{\abs{x}-\abs{y}} \leq \abs{x-y}$. 
+
+\begin{proof} (Hint: prove that $\abs{x}-\abs{y} \leq \abs{x-y}$ and $\abs{y}-\abs{x} \leq \abs{x-y}$)
+  \begin{enumerate}
+    \item $\abs{x}-\abs{y} \leq \abs{x-y}$ 
+      
+      By the Triangle Inequality we have
+      \begin{align*}
+         |x+y| &\leq |x| - |y|  \\
+         \implies |x-y+y| &\leq |x-y| + |y| \\
+         \implies |x| - |y| &\leq |x-y| \\
+      \end{align*}
+    \item $\abs{y}-\abs{x} \leq \abs{x-y}$
+      By the Triangle Inequality we have
+      \begin{align*}
+         |x+y| &\leq |x| - |y|  \\
+         \implies |x+y-x| &\leq |x| + |y-x| \\
+         \implies |y| - |x| &\leq |y-x| \\
+         \implies |y| - |x| &\leq |-(x-y)| \\
+         \implies |y| - |x| &\leq |(x-y)| \\
+      \end{align*}
+  \end{enumerate}
+\end{proof} 
+
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#5:}} Prove: If $\lim_{x \rightarrow a} f(x) = L$, then $\lim_{x \rightarrow a} \abs{f(x)} = \abs{L}$. 
+
+\begin{proof} 
+  We need to find a $\delta$ such that
+    \[ |x-a| < \delta \implies ||f(x)| - |L|| < \epsilon \]
+    By the result of Exercise 4, we know that
+      \[ |x| - |y| \leq |x-y| \]
+    So we have 
+      \[ ||f(x)| - |L|| \leq ||f(x)| - L|| < \epsilon \]
+    Which is just 
+      \[ |f(x) - L| < \epsilon \]
+    which is our definition of a limit.
+\end{proof} 
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#6:}} Prove: If $f(x) \leq g(x)$ for all $x$, $\lim_{x \rightarrow a} f(x)=L$, and $\lim_{x \rightarrow a} g(x)=M$, then $L \leq M$. 
+
+\begin{proof} (Hint: a proof by contradiction can work)
+
+  Towards a contradiction, let's assume that $L > M$.  Let's also assume that
+$f(x) \leq g(x)$ for all $x$, $\lim_{x \rightarrow a} f(x)=L$, and $\lim_{x \rightarrow a} g(x)=M$.  If such is the case, then given a fixed
+$\epsilon$, there exists a
+$\delta_f$ such that
+$ \forall \epsilon > 0 \exists \delta_f > 0 \text{ such that } \forall x$,
+\[ |x-a| < \delta_f \implies |f(x) - L| < \epsilon \]
+and $\delta_g$  such that
+$ \forall \epsilon > 0 \exists \delta_g > 0 \text{ such that } \forall x$,
+\[ |x-a| < \delta_g \implies |g(x) - M| < \epsilon \]
+
+  Now we can also say that
+\[ -\epsilon < f(x) - L < \epsilon \]
+  And
+\[ -\epsilon < g(x) - M < \epsilon \]
+Which implies 
+  \[ L-\epsilon < f(x) < L + \epsilon \]
+  And
+\[ M -\epsilon < g(x) < M + \epsilon \]
+
+And since $f(x) < g(x)$, we have
+\[ L -\epsilon < f(x) < g(x) < M + \epsilon \]
+So $M > L$.  But that contradicts our assumption of $M < L$!
+
+\end{proof} 
+\newpage
+
+The next two problems involve the following definitions. 
+
+\begin{definition*} \ 
+\begin{enumerate}
+\item We write $\lim_{x \rightarrow a} f(x) = \infty$ if for every $N$ there is a $\delta > 0$ such that: if $0 < \abs{x-a} < \delta$, then $f(x) >  N$. 
+\item We write $\lim_{x \rightarrow a^+} f(x) = L$ if for every $\epsilon$ there is a $\delta > 0$ such that: if $a < x < a+\delta$, then $\abs{f(x)-L} <\epsilon$. 
+\item We write $\lim_{x \rightarrow a^-} f(x) = L$ if for every $\epsilon$ there is a $\delta > 0$ such that: if $a-\delta < x < a$, then $\abs{f(x)-L} <\epsilon$. 
+\end{enumerate}
+\end{definition*}
+
+
+\noindent\fbox{\textbf{Exercise \#7:}} Prove: $ \lim_{x \rightarrow 3} \frac{1}{(x-3)^2} = \infty$.
+
+\begin{proof} 
+  For a ixed $N>0$ we want to choose a $\delta$ such that 
+    \[ 0 < |x-3| < \delta \implies \frac{1}{(x-3)^2} > N \]
+    We choose $\delta = \frac{1}{\sqrt{N}}$.  Then
+    \[ 0 < |x-3| < \frac{1}{\sqrt{N} \implies \sqrt{N}|x-3|} < 1 \]
+    Then
+    \[ \sqrt{N} < \frac{1}{x-3} \implies N < \frac{1}{(x-3)^2}  \]
+    So $\frac{1}{(x-3)^2 }> N$ 
+
+    Since $N$ was chosen arbitrarily, this works for all $N>0$
+\end{proof} 
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#8:}} Prove: $ \lim_{x \rightarrow a} f(x)=L$ if and only if $ \lim_{x \rightarrow a^+} f(x)=L$ and $ \lim_{x \rightarrow a^-} f(x)=L$.
+
+P: $ \lim_{x \rightarrow a} f(x)=L$
+Q1: $ \lim_{x \rightarrow a^+} f(x)=L$
+Q2: $ \lim_{x \rightarrow a^-} f(x)=L$
+
+\begin{proof} ($\Rightarrow$)
+  Assuming P above, we want to show Q1 and Q2.  Fix an $\epsilon > 0$.
+  Then $\exists \delta>0$ such that 
+  \[ 0 < |x-a| < \delta \implies |f(x) -L| < \epsilon \]
+  Now $a < x < a + \delta \implies 0 < x-a < \delta \implies |x-a| < \delta$
+
+($\Leftarrow$)
+  Assuming Q1 and Q2 above, we want to show P.
+  By Q1, then we know that $\forall \epsilon > 0 \exists \delta > 0$
+  such that 
+  \[ a < x < a + \delta \implies |f(x) - L| < \epsilon \]
+  And By Q2, then we know that $\forall \epsilon > 0 \exists \delta > 0$
+  such that 
+  \[ a - \delta < x < a \implies |f(x) - L| < \epsilon \]
+  A conjunction of the two gives us
+    \[ a - \delta < x < a + \delta \implies |f(x) - L| < \epsilon \]
+    Which is
+    \[ -\delta < x -a < \delta \implies |f(x) - L| < \epsilon \]
+    Which yields
+    \[ | x -a| < \delta \implies |f(x) - L| < \epsilon \]
+\end{proof} 
+
+
+
+
+\newpage
+\noindent\fbox{\textbf{Exercise \#9:(Optional)}} Suppose that $A_n$ is a \emph{finite} set of numbres in $[0,1]$ for each natural number $n$. Suppose $A_n$ and $A_m$ have no numbers in common if $m\neq n$.  Define $f$ as follows:
+\[f(x)= \begin{cases} 1/n
+, \quad x \in A_n \\
+0, \quad \quad  x\not\in A_n \ \forall n.  \end{cases}\]
+Prove that $lim_{x\rightarrow a} f(x)= 0$ for all $a\in [0,1]$. 
+\begin{proof} (Hint: Proof by contradiction. Use the definition of limits very carefully. The problem is challening!)
+	
+\end{proof} 
+
+
+
+
+\end{document}

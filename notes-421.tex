@@ -103,7 +103,7 @@
 
 \section*{20230620 - Proof Techniques}%
   \begin{itemize}
-    \item Theorems are off the for $P \Longrightarrow Q$
+    \item Theorems are of the form $P \Longrightarrow Q$
     \item Proof by Cases
 
       Divide P into multiple cases
@@ -695,4 +695,481 @@
       $a_n = a_{n-1}+2a_{n-2}$ for all $n \geq2$.  Show that
       $a_n = 2^n+(-1)^n$ for all $n \geq 1$
     }
+\section*{20230627 - Induction and Functions}%
+  \subsection*{Complete Induction - Recap}%
+  \begin{itemize}
+    \item Base Case: Either 1 or $n_0$ is true
+    \item Induction Step: If $P(m)$ is true $\forall m \leq k \implies
+      P(k+1)$ is true, then $P(n)$ is true for all $n \in \mathbb{N}$
+      \ex{HOMEWORK from yesterday} {
+        \myproof {~\\
+          \underline{Base Case: } show n=1, n=2
+
+          \underline{Induction Step: } See Picture
+        }
+        
+      }
+  \end{itemize}
+
+  \subsection*{Functions}%
+
+    If A and B are sets, then we can define funtions from A to B
+
+    Assume both A and B are the $\mathbb{R}$
+    \dfn{ Function --- Informal }{
+      Rule that assigns (certain) elements in A to elements in B
+    }
+
+    \dfn{ Domain }{
+      All the numbers in $R$ that $f$ assigns a number to it
+
+      Notation --- Dom($f$ )
+
+      $f(x)$ for $x \in $ Dom($f$ ) is the number that $f$ assigns to $x$ 
+
+      \underline{A Function must always contain a Domain}
+    }
+
+    \dfn{ Codomain }{
+      Possible range of values for B, e.g. $\mathbb{R}$
+    }
+    \dfn{ Range }{
+      All values in $g \in \mathbb{R}$ such that there is an $x \in $
+      Dom($f$ ) such that $f(x)=y$
+    }
+    \ex{sin} {
+      \begin{itemize}
+        \item Domain:  $\mathbb{R}$
+        \item Codomain:  $\mathbb{R}$
+        \item Range: $[-1,1]$
+      \end{itemize}
+    }
+    \ex{$f(x) = \frac{1}{x}$ } {
+      \begin{itemize}
+        \item Domain: x, $x \in \mathbb{R}, x \neq 0$
+      \end{itemize}
+    }
+    \subsection{Special Functions}%
+    \begin{itemize}
+      \item Polynomials: A functions from $\mathbb{R} \Rightarrow \mathbb{R}$
+        is called a polynomials function if 
+        \[P(x) = a_nx^n + a_{n-1}x^{n-1} \dots, \forall x \in \mathbb{R}\]
+        for some $a_n, a_{n-1}, \dot, a_0 \in \mathbb{R}$
+
+        Degree of $P$ is $n$, i.e. the highest power of $x$ such that its
+        coeffficient is non-zero
+
+        E.g., $t^2 + t + \pi/2$: degree $p=2$
+      \item Rational 
+        \dfn{ Rational Function}{
+          A function  $f$ is valled a rational function if
+          \[ f(x) = \frac{p(x)}{q(x)}  \]
+          where $p,q$ are polynomial function, and $
+          x \in \{x:x \in \mathbb{R}, q(x) \neq 0  \}$
+        }
+        E.g. $f(t) = \frac{t^2+1}{t^2-1} $.  Domain = $\{t: t \in
+        \mathbb{R}, t \neq \pm 1\}$
+        
+    \end{itemize}
+    \subsection{Operations on Functions}%
+    \begin{itemize}
+      \item Multiply by Constant:  Let $f$ be a function, then we define
+        the function $cf$ ffor some $ c\in \mathbb{R}$ as
+        \[ (cf)(x) = c \cdot(f(x)) \]
+
+        Ex: $f(x) = x \forall x \in \mathbb{R}$, then
+        $(2f)(x) = 2x, \forall x \in \mathbb{R}$
+
+        \underline{Dom(cf) = Dom(f)}
+      \item Addition: If $f$ and $g$ are ffunction, then we define
+        $(f + g)(x)$ as $f(x) + g(x), \forall x \in \text{ Dom }(f)
+        \cap \text{ Dom }(g)$
+
+        Ex: $f = 1/x, g = 1/(x-1), (f+g)(x) = 1/x + 1/(x-1)$
+
+      \item Multiply: If $f$ and $g$ are functions we define
+          \[ (f \cdot g)(x) = f(x) \cdot g(x) \]
+
+          Domain ($f \cdot g) = \text{ Dom }(f) \cap \text{ Dom }(g)$
+
+      \item Divide: If $f$ and $g$ are functions we define
+          \[ (f / g)(x) = f(x) / g(x) \]
+
+          Domain ($f / g) = \text{ Dom }(f) \cap \text{ Dom }(g)
+          \cap \{x: g(x) \neq 0 \}$
+
+      \item Composition: If $f$ and $g$ are functions we define
+          \[ (f \circ g)(x) = f(g(x)) \]
+          Domain ($f \circ g) = \text{ Dom }(g) \cap \{x: g(x) \in
+          \text{ Dom }(f) \}$
+    \end{itemize}
+
+    \dfn{ Function }{
+      A function $f$ is a subset of $\mathbb{R} \times \mathbb{R}$
+      such that if $(a,b) \in f$ and $(a,c) \in f$ then $b=c$
+
+      \underline{Domain}: Dom(f) = $\{ a: (a,b) \in f$, for some
+        $b \in \mathbb{R}$
+
+      \nt{
+        From the definition, it is clear that there is a unique
+        $y \in \mathbb{R}$ subthat $(x,y) \in f$ for $x \in \text{ Dom }
+        (f)$.  We can define this unique $y$ as $f(x)$
+      }
+      \nt{ It is useful to thinkoff functions as rules}
+    }
+
+    \ex{} {
+      Let $f$ amd $g$ be functiond with domain $\mathbb{R}$.  Let
+      this set be F
+      \begin{enumerate}
+        \item Show that $f+g \in F$ and $f \cdot g \in F$
+        \item Define $\theta(x) = 0, \forall x \in \mathbb{R}$.  
+          and  $\theta(x) = 1, \forall x \in \mathbb{R}$.  
+
+
+          Clearly $\theta$ and $\iota \in F$.  Show that $f + \theta = $
+          and $f \cdot \iota = \iota \cdot f \ f$
+
+        \item $g = (F, +, \cdot, \theta, \iota)$.  What properties P1-P9
+          does g satisfy
+        \item $P = \{f: f \in F, f(x)>0 \forall  x \in \mathbb{R}\}$.
+          Does g (from directly above) satisfy P10-P12
+        \item How do we define -f?
+      \end{enumerate}
+    }
+
+\section*{20230628 - Graphs}
+  \subsection{Intervals}%
+  \begin{itemize}
+    \item Algebraic notion of real number ??
+    \item Geomtric notion: Real Number line
+    \item Intervals: $[a,b], (a,b), [a,b), (a,b]$
+    \item Because $\mathbb{R}$ is infinite: $([a,\infty), (- \infty,a),
+      (-\infty, a), (- \infty, a]$
+    \item Absolute Value: |x-y| is the distance between x and y on the
+      real line
+    Assume $\epsilon > 0 \text{ and } \epsilon < a$, then
+    \begin{align}
+      (a - \epsilon, a + \epsilon) &= \{ x: a - \epsilon < x < a + \epsilon 
+      &= \{ x: - \epsilon < x - a < \epsilon 
+      &= \{ x: |\epsilon -a | < \epsilon 
+    \end{align}
+      I.e., All points at a distance less than $\epsilon$ frfom $a$ on
+      $\mathbb{R}$
+  \end{itemize}
+
+  \subsection{The Plane}%
+    \begin{itemize}
+      \item $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R} = 
+        \{(x,y): x \in \mathbb{R}, y \in \mathbb{R}$
+        \item dist((a,b), (c,d)) = $\sqrt{(a-c)^2 + (b-d)^2}$
+    \end{itemize}
+
+  \subsection{Graph of Functions}%
+    \begin{itemize}
+      \item A grapgh is a geometric representation of a function
+      \item The graph of a function $f$ is
+        s\[ \{(x, f(x)): x \in \mathbb{R}\} \subseteq \mathbb{R}^2 \]
+    \end{itemize}
+    \ex{$(x) = x$} {
+       graph of a line
+    }
+  \item Graph(f) := $\{ (x,y): x \in \mathbb{R}, y = f(x) \}$
+
+    \subsection{Misc}%
+    \begin{itemize}
+      \item $\frac{p}{q} $ is lowest terms is the same as gcd(p,q) = 1.
+        We say p and q are relatively prime
+    \end{itemize}
+  
+    
+\section*{20230629 - Chapter 5 - Limits}
+  \subsection{Definitions of Limits}%
+    \dfn{ Limits - INFFORMAL }{
+      We say that $\lim_{x \to a} f(x) = L$ if $f(x)$ approaches L as $x$
+      approaches $a$ but not equal to $a$ 
+    }
+    
+    WHY DID THE LIMIT IF THR BROKEN FUNCTION NOT ECIST?
+
+    \dfn{ Limit - INFORMAL restated }{
+      We say $\lim_{x \to a} f(x) = L$ if we can make $f(x)$ as close to
+      $L$ as we like by making $x$ suiciently close to -- but not equal
+      to --- $a$ 
+    }
+
+    \dfn{ Limit - IFORMAL re-restated }{
+      We say $\lim_{x \to a} f(x) = L$ if we can make $|f(x) - L|$ as small
+      as we like by making $|x-a|$ sufficiently small, but not equal to 0
+    }
+
+    \dfn{ Limit - Precise }{
+      We say that a $ \lim_{n \to a} f(x) = L$ if $\forall \epsilon > 0,
+      \exists \delta > 0$ such that
+      \[ |x-a| < \delta \implies |f(x)-L| < \epsilon \]
+    }
+
+    \dfn{ Limits - Another way of defining }{
+      If the disctance of $x$ from $a$ is less than $\delta$, then
+      the distance of $f(x)$ frfom L is less than $\epsilon$
+    }
+    \dfn{ Limits - ANOTHER way of defining }{
+      If $x \in (a-\delta, a + \delta)$ then $f(x) \in (L - \epsilon,
+      L + \epsilon)$
+    }
+
+    \nt{ If some $\delta$ satisfies $|x-a| < \delta \implies |f(x)-L|
+      < \epsilon$, then for any $\delta_0 < \delta$
+      \[ |x-a| < \delta_0 \implies |f(x) - L | < \epsilon \]
+    }
+
+    \subsection{Working with $\epsilon / \delta$ defn} 
+    \ex{Let $f(x)= 5x$.  Show that $\lim_{x \to 3} 5x = 15$} {
+      \[ |5x - 15| = 5|x-3| < 5 \delta \]
+      So why not choose $\\delta = \frac{\epsilon}{5} $
+
+      \myproof {
+        Choose $\delta = \frac{\epsilon}{5} $.  Now, $|x-3| < \delta
+        \implies |x-2| < \frac{\epsilon}{5}$ .  Then
+        \[ |f(x) - 15| = |5x -15| = 5|x-3| < 5 \frac{\epsilon}{5} =
+          \epsilon \]
+      }
+    }
+
+    \ex{Let $f(x) = x^2+2x$.  Show that $\lim_{x \to 1} f(x) = 3$  } {
+      Scratch:  We wan $\delta > 0$ such that $|x-1| < \delta \implies
+      |x^2 + 2x + 3| < \epsilon$.  Now, $|x^2 + 2x -3| = |(x+3)(x-1)|$,
+      The idea is to deal with $|x+3|$ since it is less restrictive.
+
+      \[ |x+3| = |x-1+4| \]
+      \[ |x-1+4|  \leq |x-1| + 4 \text{ by Triangle Inequality } \]
+      Now assume $|x-1| < 1$.  Then $|x-1|+4 < 5$
+
+      Choose
+      \[ \delta = min\{1, \frac{\epsilon}{\text{ assumption above }}  \]
+
+        \myproof {
+          Choose $\delta = min \{1, \frac{\epsilon}{5} \}$.
+          Then $x-1 < \delta
+          \implies |f(x)-3| = |x^2 + 2x -3| = |(x+3)(x-1)| = 
+          |x+3||x-1| \leq (|x-1|+4)(|x-1|) < (1+4) \cdot \frac{\epsilon}{5}
+          = 5 \frac{\epsilon}{5} = \epsilon$
+        }
+    }
+
+    \ex{Try this yourself} {
+      $f(x) = (x^2+1)(x-5)$.  Show that $\lim_{x \to 1} f(x) = -8$
+    }
+
+    \subsection{Why is the defimition pf limit well defined?}%
+    If $\lim_{x \to s} f(x) = L$ and $\lim_{x \to a} f(x) = M$, Why
+    $M=L$?
+      
+    Idea:
+      \[ x \approx a, f(x) \approx L \]
+      \[ x \approx a, f(x) \approx M \]
+      Then $L \approx M$
+
+\newpage
+\section*{Theorems \& Notes}%
+    \subsection{Logical Arguments}%
+    Converse: $Q \Longrightarrow P$ \\
+    Contrapositive: $\neg Q \Longrightarrow \neg P$\\
+    Contradiction: $ \neg Q \wedge P \Longrightarrow \neg P $
+
+    \subsection{Proof Types}%
+    \begin{itemize}
+    \item $P \Longrightarrow Q$ is logically equivalent to its contrapositive $(\neg Q \Longrightarrow \neg P)$
+    \item Proof by Cases
+      Divide P into multiple cases
+    \item Proof by Contrapositive
+      $P \Longrightarrow Q $ is equivalent to $\neg Q \Longrightarrow \neg P$
+      Start the proof by stating "Proof by contrapositive: Assume $\neg Q$
+      and we will show that $\neg P$ is true
+
+    \item Proof by Contradiction
+      Assume that Q is not true.  Then we want to reach a contradiction
+        \[ \neg Q \wedge P \Longrightarrow \neg P \]
+      Start the proof by saying "Proof by contradiction:  Assume that
+      Q is not true ... "  or "Assume for a contradiction that Q is not
+      true"
+    \end{itemize}
+
+    \subsection*{The First 4 Properties (for addition)}%
+      \begin{enumerate}
+        \item[P1]: Additive Associativyy - $a + (b+c) = (a+b)+c$
+        \item[P2]: Additive Identity - $a + 0 = 0+a = a$
+        \item[P3]: Additive Inverse-For all real number $a$ there exists
+          a $-a$ such that $a + -a = 0$
+        \item[P4]: Commutativity of Additive - $a+b = b+a$ or all real
+          numbers $a,  b$
+      \end{enumerate}
+
+      \ex{} {
+        \thm{ 1 } {
+          Suppose $a$ and $x$ are real numbers, then $a+x=a \Rightarrow x=0$
+        }
+        \myproof {
+          Add $-a$ (P3) to both sides of the equation.  Then
+          $-a+(a+x) = -a + a = 0$ by P3.  Now,
+          $-a+(a+x) = (-a+a)+x) (P1) = 0 + x (defn) = x (P2)$.
+          By comparing (1) and (2) you get x=0
+        }
+
+        \myproof {
+          Suppose that $a+x=a$.  We know that
+          0 = -a + a (P3) \\
+          = -a + (a+x) by assupmption\\
+          =(-a+a)+x (P1)\\
+          = 0 +x (P1)\\
+          = x (P2)
+        }
+      }
+
+    \dfn{ Subtraction }{
+      Using P3 we define subtraction For real numbers $a,b$
+
+      We define $a-b=a+-b$
+    }
+
+    \subsection*{The Properties for Multiplication}%
+      \begin{enumerate}
+        \item[P5]: Associativy - $a + (b+c) = (a+b)+c$
+        \item[P6]: Identity - $a \cdot 1 = 1 \cdot a = a$
+        \item[P7]: Multiplicative Inverse - Suppose $a \neq 0$, thn
+          there exists a real number $a^{-1}$ such that
+          $a \cdot a^{-1} = a^{-1} \cdot a = 1$
+        \item[P8]: Commutativity - $a \cdot b = b \cdot$
+          for any two real number $a,b$
+
+      \thm{ } {
+        Suppose $a,b,c$ are real numbers such that {**}$a \cdot b=a \cdot c$
+        and $a \neq 0$, then $b = c$
+      }
+
+      \dfn{ Division }{
+        Using multiplicative inverse, suppose $b \neq 0$, then $a/b = a \cdot b^{-1}$
+      }
+        \item[P9]: Distributivity -
+          $a \cdot (b +c) = a \cdot b  + a \cdot c$
+          for any real numbers $a,b,c$
+
+          \thm{ 3 } {
+            Suppose $a$ is a real number, then $a \cdot 0 = 0$ and
+            $0 \cdot a = 0$
+          }
+
+      \thm{ 4 } {
+        Suppose a,b are real numbers st $ab=0$, then either a=0 or b=0
+      }
+      \begin{proof}
+        \begin{case}
+          Suppose a = 0, then we are done
+        \end{case}
+        \begin{case}
+          Suppose $a \neq 0$, then P7 gives $a^{-`}$.
+          By premultiplying $a^{-1}$ to the eqn
+          $a^{-1}(a b) = a^{-1}(ab) = a ^{-1}0.
+          By P5 a index(ab) = (a ^{-1} a) b$.  By P7 $a ^{-1} a = 1$.
+          By Thm 3 $a ^{-1} 0 = 0$.  By P6 $a b = b$, so $b=0$
+
+        \end{case}
+      \end{proof}
+
+    \underline{3 Properties of Positive Numbers}
+    \item[P10] For every real number $a$ , exactly one of the following
+      holds
+      \begin{enumerate}
+        \item $a=0$
+        \item $a \in P$
+        \item $-a \in P$
+      \end{enumerate}
+    \item[P11]: If $a,b \in P$ then $a+b \in P$
+    \item[P12] If $a,b \in P$ then $a \cdot b \in P$
+  \end{enumerate}
+
+  P10 - P11 allows us to define inequalities
+  \dfn{ Inequalities }{
+    \begin{enumerate}
+      \item $ a> b$ if $a-b \in P$
+      \item $ a < b$ if $b > a$ ($b-a \in P)$
+      \item $ a \geq b$ if $a > b$ or $a = b$
+      \item $ a \leq b$ if $b \geq a$
+    \end{enumerate}
+  }
+  \thm{ Transitivity of < } {
+    If $a,b,c$ are R such that $a < b$ and $b < c$, then $a < c$
+    Transitivity of <
+  }
+  \myproof {
+    $ a < b$ means $b-a \in P$
+    $ b < c$ means $c-b \in P$
+
+    By P11, $(b-a + c-b \in P$
+
+    By P4, $(b-a + c-b = (b-a) + (-b+c)$
+
+    By P1, $(b-a + -b + c = (b-a + -b) +c$
+
+    By P4, $(b-a + -b) + c = (b-b-a) +c$
+
+    By P3, = $(0-a) + c$
+
+    By P2 $= -a + c$
+
+    So $(b-a) + (c-b) \in P$, which is the same as $c-a \in P$ by P4
+  }
+
+  \dfn{ Absolute Value }{
+    Let a be a real number.  We deffine
+    \[ |a| = a \text{ if } a \geq 0 \]
+    \[ |-a| = a \text{ if } a \leq 0 \]
+    \textbf{Remark}: It is helpful to deal with cases for questions related to absolute values
+  }
+
+  \thm{ Triangle Inequality} {
+    If $x$  and $y$ are real numbers, then
+    \[ |x+y| \leq |x| + |y| \]
+  }
+
+  \thm{ $x+y$ is irrational } {
+    If $x$ is irratinoal and $y$ is rational, $x+y$ is irrational
+  }
+  \renewcommand\qedsymbol{\Lightning}
+  \begin{proof}[\textbf{Proof by contradiction}]  
+    So, if $x+y$ is ratinal, then $x+y = 2 \Rightarrow $ rational  implies $x = 2-y$
+  \end{proof} 
+  \renewcommand\qedsymbol{$\square$}
+
+  \thm{ Well-Ordering Principle } {
+    Every non-empty subset of natural numbers has a least (smallest)
+    element
+  }
+
+  \subsection{Limits}%
+  
+  \dfn{ Limit }{
+    body
+  }
+  \thm{ title } {
+    body 
+  }
+
+  \nt{
+    \underline{Proof Template - Limits}
+  }
+
+  \subsection{Continuity}%
+  \dfn{ Continuity }{
+    body
+  }
+  \thm{ Continuity } {
+    body 
+  }
+
+  \nt{
+    \underline{Proof Template - Continuity}
+  }
+
 \end{document}

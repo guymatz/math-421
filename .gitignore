@@ -4,7 +4,7 @@ docs
 *.md
 *.out
 *.pdf
-*.synctex.gz
+*.synctex*
 *.toc
 .latexrun.*
 *.blg
