@@ -1130,7 +1130,11 @@
 
   \thm{ Triangle Inequality} {
     If $x$  and $y$ are real numbers, then
-    \[ |x+y| \leq |x| + |y| \]
+      \begin{itemize}
+        \item $|x+y| \leq |x| + |y|$
+        \item $||x|-|y|| \leq |x - y|$
+      \end{itemize}
+
   }
 
   \thm{ $x+y$ is irrational } {
@@ -1149,27 +1153,95 @@
 
   \subsection{Limits}%
   
-  \dfn{ Limit }{
-    body
-  }
-  \thm{ title } {
-    body 
+  \thm{ Well-definedness of Limits } {
+    Let $f$ be a function and $\lim_{x \to a} f(x) = L$ and
+    $\lim_{x \to a} f(x) = M$.  Then $L=M$
   }
 
+  \thm{ Functions on Limits } {
+    Let $\lim_{x \to a} f(x) = L$ and $\lim_{x \to a} g(x) = M$.  Then
+    \begin{enumerate}
+      \item $\lim_{x \to a} (f+g)(x) = L+M$
+      \item $\lim_{x \to a} (f \cdot g)(x) = L \cdot M$
+      \item If $M \neq 0$, then $\lim_{x \to a} (\frac{1}{g})(x) = \frac{1}{M}$
+    \end{enumerate}
+  }
+  \thm{ } {
+    Let $x,y \in  \mathbb{R}$ such that $|x-x_0| < min \{1, \frac{e}{2(1+y_0)} \}$ and $|y - y_0| <  \frac{\epsilon}{2 ( 1 + |x_0|)}$, then
+    \[ |xy - x_0y_0| < \epsilon \]
+  }
+  \thm{ } {
+    If $|y - y_0| < min \{  \frac{y_0}{2} , \frac{\epsilon|y_0|^2}{2} \}$,
+    then
+      \[ |\frac{1}{y} - \frac{1}{y_0} < \epsilon \]
+  }
   \nt{
     \underline{Proof Template - Limits}
   }
 
-  \subsection{Continuity}%
+  \subsection*{\underline{Continuity}}%
   \dfn{ Continuity }{
-    body
+    $f$ is \underline{continuous} at $a \in \text{ Dom}(f)$ if
+      \[ \lim_{x \to a} f(x) = f(a) \]
   }
-  \thm{ Continuity } {
-    body 
+  \dfn{ Continuous Function }{
+    A function $f$ is \underline{continuous} if it is continuous at
+    every point in its domain
+  }
+  \nt{
+    \[ \lim_{x \to a} f(x) = f(a) \]
+      is the same as $\forall \epsilon > 0 \exists \delta > 0$ such that
+      \[ 0 < |x-a| < \delta \implies  |f(x) - f(a)| < \epsilon \]
+      When $|x-a| = 0, x=a \implies |f(x)-f(a)=|f(a)-f(a)=0 < \epsilon$
+      I.e., you can drop the $0 < |x-a|$
+  }
+  \dfn{ Continuous at a point }{
+    We say that $f$ is continuous at $a$ if $\forall \epsilon > 0
+    \exists \delta > 0 \text{ such that } |x-a| < \delta \implies
+    |f(x) -f(a)| < \epsilon$
+  }
+  \thm{ Continuity of Functions} {
+    Let $f$ and $g$ be continuous functions at $a$.  Then
+    \begin{enumerate}
+      \item $(f+g) \text{ is continuous at  } a$
+      \item $(f \cdot g) \text{ is continuous at  } a$
+      \item If $g(a) \neq 0$, then $\frac{1}{g}$ is continuous at a.
+    \end{enumerate}
+    \ex{Product of Continuous Functions} {
+      \begin{align*}
+        \lim_{x \to a} (f*g)(x) &= \lim_{x \to a} f(x) * g(x) \\
+                              &= f(a) * g(a) \\
+                              &= (f*g)(a)
+      \end{align*}
+    }
+  }
+  \thm{ Composition of Continuous Functions } {
+    If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$
+    then $f \circ g$ is continuous at a.
   }
 
   \nt{
     \underline{Proof Template - Continuity}
+
+    % From https://youtu.be/HTN2rldZCHc
+    Prove: $f:\mathbb{R} \Rightarrow \mathbb{R}$ defined by 
+    $f(x)=sqrt{x}$ is continuous
+
+    Scratch:  Isolate $|x-c| < \epsilon$
+      \begin{align*}
+        |f(x) - f(c)| &= |sqrt{x} - sqrt{c}| \\
+                      &= \frac{|x-c|}{|sqrt{x}}+sqrt{c}|} \\
+                      &= \frac{|x-c|}{sqrt{c}} \\
+                      &\leq \epsilon
+      \end{align*}
+      So we set $\delta = \epsilon sqrt{c}$ since it is small enough
+
+    \myproof {
+      Let $\epsilon>0$ and $c \in \mathbb{R}$.
+      Take $\delta = \epsilon sqrt{c}$.
+      Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
+        \[ |f(x) - f(c)| < \epsilon \]
+    }
   }
 
 \end{document}

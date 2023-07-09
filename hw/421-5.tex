@@ -1,0 +1,230 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+%\usepackage[margin=1in]{geometry} % This package allows the editing of the page layout. I've set the margins to be 1 inch. 
+
+\usepackage{amsmath, amsfonts}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{marvosym}  % Lightning!
+
+%This allows us to use the theorem and proof environment 
+\usepackage{enumitem}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+
+\newtheoremstyle{case}{}{}{}{}{}{:}{ }{}
+\theoremstyle{case}
+\newtheorem{case}{Case}
+
+%Custom commands.  
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value command
+
+%Custom symbols
+\newcommand{\Rb}{\mathbb{R}}
+
+\begin{document}
+
+\begin{center}
+\Large{\textbf{Assignment \#3}
+            
+UW-Madison MATH 421} % Name of course here
+\vspace{5pt}
+        
+\normalsize{  Guy Matz% Your name here
+        \\ Due: June 30, 2023}
+\vspace{15pt}
+\end{center}
+
+\section*{Exercises}%
+\begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
+  \item Prove the following
+    \begin{enumerate}
+      \item If $c \in \Rb$, then the constant function $f(x) =c$ is continuous at every real number.
+        \begin{proof}[Proof of (a)]
+        \end{proof}
+      \item The function $f(x) = x$ is continuous at every real number.
+        \begin{proof}[Proof of (b)]
+        \end{proof}
+    \end{enumerate}
+
+
+
+\newpage
+
+\item Prove the following
+  \begin{enumerate}
+    \item If $n$ is a natural number, then the function $f(x) = x^n$ is
+      continuous at every real number.
+      \begin{proof}[Proof of (a)]
+      \end{proof}
+
+    \item If $g$ is a polynomial, then $g$ is continuous at every real number.
+      \begin{proof}[Proof of (b)]
+      A polynomial is defined as an expression which is composed of variables, constants and exponents, that are combined using mathematical operations such as addition, subtraction, multiplication and division (No division operation by a variable).
+      \end{proof}
+    \item If $h$ is a rational function, then $h$ is continuous at every number in its domain.
+
+      \begin{proof}[Proof of (c)]
+        a rational function is any function that can be defined by a rational fraction, which is an algebraic fraction such that both the numerator and the denominator are polynomials. The coefficients of the polynomials need not be rational numbers; 
+      \end{proof}
+  \end{enumerate}
+
+
+
+\newpage
+\item Spivak, Chapter 6, Problem 3 (a)
+  Suppose that $f$ i s a function satisfying $\abs{f(x)} \leq \abs{x}$
+  for all $x$. Show that $f$ is continuous at $0$. (Notice that $f(0)$
+  must equal 0.)
+
+\begin{proof}
+\end{proof}
+
+
+\newpage
+\item Spivak, Chapter 6, Problem 10 (a)
+  Given a function, let $\abs{f}$ be the function defined by
+  $\abs{f}(x) = \abs{f(x)}$. Prove: if $f$ is continuous at $a$, then
+  $\abs{f}$ is continuous at $a$.
+
+\begin{proof} (Hint: use a problem on a previous HW)
+\end{proof}
+
+
+\newpage
+\item Consider the function
+$$f(x) = \begin{cases} 0 & \text{if $x$ is irrational} \\
+1 & \text{if $x$ is rational.}
+\end{cases}
+$$
+Using the $\epsilon/\delta$ definition, prove that $\lim_{x \rightarrow a} f(x)$ does not exist for every real number $a$ (and hence $f$ is discontinuous at every real number).
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\item Prove: if $f$ is continuous at $x=1$ and $f(1) = 7$,
+then
+$$
+\lim_{x \rightarrow 4} f(8x-31) = 7.
+$$
+
+\begin{proof}
+    use $(f \circ g)(x)$
+\end{proof}
+
+\newpage
+\item Prove: if $f$ is continuous at $x=1$ and $f(1) = 7$,
+then
+$$
+\lim_{x \rightarrow 4} f(x^2-x-11) = 7.
+$$
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\item \underline{Optional} Suppose that $f$ is a continuous function on $(a,b)$ and 
+  \[lim _{x\rightarrow a^{+}}= lim_{x\rightarrow b^{-}}=\infty \]
+  Prove that $f$ has a minimum on all of $(a,b)$, i.e there exists
+ $c \in (a,b)$ such that $f(c) \leq f(x)$ for all $x\in (a,b)$.
+
+\begin{proof} (Hint: Try to use the fact that a continuous function on a
+  closed interval has a minimum.)
+
+\end{proof}
+
+\newpage
+
+
+\section*{Continuity}%
+
+\subsection*{Definitions}
+
+  \dfn{ \textbf{Continuity }}{
+
+    $f$ is \underline{continuous} at $a \in \text{ Dom}(f)$ if
+      \[ \lim_{x \to a} f(x) = f(a) \]
+  }
+
+  \dfn{ \textbf{Continuous Function }}{
+    A function $f$ is \underline{continuous} if it is continuous at
+    every point in its domain
+  }
+
+  \nt{
+    \[ \lim_{x \to a} f(x) = f(a) \]
+      is the same as $\forall \epsilon > 0 \exists \delta > 0$ such that
+      \[ 0 < |x-a| < \delta \implies  |f(x) - f(a)| < \epsilon \]
+      When $|x-a| = 0, x=a \implies |f(x)-f(a)=|f(a)-f(a)=0 < \epsilon$
+      I.e., you can drop the $0 < |x-a|$
+  }
+
+  \dfn{ \textbf{Continuous at a point }}{
+    We say that $f$ is continuous at $a$ if $\forall \epsilon > 0
+    \exists \delta > 0 \text{ such that } |x-a| < \delta \implies
+    |f(x) -f(a)| < \epsilon$
+  }
+
+\subsection*{Theorems}
+
+  \thm{ \textbf{Triangle Inequality }} {
+    If $x$  and $y$ are real numbers, then
+      \begin{itemize}
+        \item $|x+y| \leq |x| + |y|$
+        \item $||x|-|y|| \leq |x - y|$
+      \end{itemize}
+
+  }
+
+  \thm{ \textbf{Continuity of Functions }} {
+    Let $f$ and $g$ be continuous functions at $a$.  Then
+    \begin{enumerate}
+      \item $(f+g) \text{ is continuous at  } a$
+      \item $(f \cdot g) \text{ is continuous at  } a$
+      \item If $g(a) \neq 0$, then $\frac{1}{g}$ is continuous at a.
+    \end{enumerate}
+    \ex{Product of Continuous Functions} {
+      \begin{align*}
+        \lim_{x \to a} (f*g)(x) &= \lim_{x \to a} f(x) * g(x) \\
+                              &= f(a) * g(a) \\
+                              &= (f*g)(a)
+      \end{align*}
+    }
+  }
+
+  \thm{ \textbf{Composition of Continuous Functions }} {
+    If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$
+    then $f \circ g$ is continuous at a.
+  }
+
+  \nt{
+    \underline{Proof Template - Continuity}
+
+    % From https://youtu.be/HTN2rldZCHc
+    Prove: $f:\mathbb{R} \Rightarrow \mathbb{R}$ defined by 
+    $f(x)=|x|$ is continuous
+
+    Scratch: 
+      \begin{align}
+        |f(x) - f(c)| &= ||x| - |c|| \\
+                      &\leq |x - c| \\
+                      &\leq \delta
+      \end{align}
+      So we set $\delta = \epsilon$
+
+    \myproof {
+      Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = \epsilon$.
+      Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
+        \[ |f(x) - f(c)| < \epsilon \]
+    }
+  }
+
+
+\end{document}
