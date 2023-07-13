@@ -973,12 +973,21 @@
 
 \newpage
 \section*{Theorems \& Notes}%
-    \subsection{Logical Arguments}%
+    \subsection*{Proof Steps}
+      \begin{itemize}
+        \item Figure out a P and Q
+        \item Separate into things we know how to deal with
+        \item Find a goal
+        \item Pick an appropriate proof type
+        \item Use Theorems
+        \item Use Definitions
+      \end{itemize}
+    \subsection*{Logical Arguments}%
     Converse: $Q \Longrightarrow P$ \\
     Contrapositive: $\neg Q \Longrightarrow \neg P$\\
     Contradiction: $ \neg Q \wedge P \Longrightarrow \neg P $
 
-    \subsection{Proof Types}%
+    \subsection*{Proof Types}%
     \begin{itemize}
     \item $P \Longrightarrow Q$ is logically equivalent to its contrapositive $(\neg Q \Longrightarrow \neg P)$
     \item Proof by Cases
@@ -1179,7 +1188,7 @@
     \underline{Proof Template - Limits}
   }
 
-  \subsection*{\underline{Continuity}}%
+  \subsection*{Continuity}%
   \dfn{ Continuity }{
     $f$ is \underline{continuous} at $a \in \text{ Dom}(f)$ if
       \[ \lim_{x \to a} f(x) = f(a) \]
@@ -1225,23 +1234,172 @@
 
     % From https://youtu.be/HTN2rldZCHc
     Prove: $f:\mathbb{R} \Rightarrow \mathbb{R}$ defined by 
-    $f(x)=sqrt{x}$ is continuous
+    $f(x)=\sqrt{x}$ is continuous
 
     Scratch:  Isolate $|x-c| < \epsilon$
       \begin{align*}
-        |f(x) - f(c)| &= |sqrt{x} - sqrt{c}| \\
-                      &= \frac{|x-c|}{|sqrt{x}}+sqrt{c}|} \\
-                      &= \frac{|x-c|}{sqrt{c}} \\
+        |f(x) - f(c)| &= |\sqrt{x} - \sqrt{c}| \\
+                      &= \frac{|x-c|}{|\sqrt{x}+\sqrt{c}|} \\
+                      &\leq \frac{|x-c|}{\sqrt{c}} \\
                       &\leq \epsilon
       \end{align*}
-      So we set $\delta = \epsilon sqrt{c}$ since it is small enough
+      So we set $\delta = \epsilon \sqrt{c}$ since it is small enough
 
     \myproof {
       Let $\epsilon>0$ and $c \in \mathbb{R}$.
-      Take $\delta = \epsilon sqrt{c}$.
+      Take $\delta = \epsilon \sqrt{c}$.
       Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
         \[ |f(x) - f(c)| < \epsilon \]
     }
   }
 
+  \thm{ Stability of Continuous Functions } {
+    Let $f$ be continuous at $a$.  Then
+    \begin{enumerate}
+      \item If $f(a)>0$, then there exists $\delta > 0$, such that
+        \[ f(x)>0, \forall x \in (a - \delta, a + \delta) \]
+        I.e., if $x$ is positive, there's at least a small area around
+        $x$ that's also positive
+      \item If $f(a) < 0$, then  there exists $\delta > 0$ such that
+        \[ f(x) < 0 \forall x \in (a- \delta, a + \delta) \]
+        I.e., if $x$ is negative, there's at least a small area around
+        $x$ that's also negative
+    \end{enumerate}
+  }
+
+  \subsection*{Continuity on $\mathbb{R}$}%
+  \subsection*{Chapter 7 - Hard Theorems}%
+
+  \dfn{ $f$ is Continuous }{
+    We say $f$ is continuous on (a,b) if $f$ is continuous at
+    x for all $x \in (a,b)$
+  }
+
+  \dfn{ $f$ is Continuous on $\mathbb{R}$}{
+    We say $f$ is continuous on $R$ if $f$ is continuous at
+    x for all $\mathbb{R}$
+  }
+
+  \dfn{ $f$ is Continuous on an Interval }{
+    We say $f$ is continuous on $[a,b]$ if $f$ is continuous on
+    $(a,b)$ and $\lim_{x \to a^+} f(x) = f(a)$ 
+     and $\lim_{x \to b^-} f(x) = f(b)$ 
+  }
+
+  \nt{
+    If Dom$(f) = \mathbb{R}$, then $f$ being continuous on $[a,b]$
+    does NOT mean that $f$ is continuous at $a$ or $b$
+  }
+
+  \thm{ 1 } {
+    If $f$ is continuous on $[a,b]$ and $f(a) < 0 < f(b)$, then there
+    exists a $c$ in $[a,b]$ such that $f(c)=0$
+  }
+
+  \thm{ 2 } {
+    If $f$ is continuous on $[a,b]$ then there exists an
+    $N \in \mathbb{Z} $ for all $x \in [a,b]$.  That is, $f$ is
+    bounded above.
+  }
+
+  \thm{ 3 } {
+    If $f$ is continuous on $[a,b]$ then there exists a $y \in [a,b]$
+    such that $f(x) \leq f(y), \forall x \in [a,b]$
+  }
+
+  \subsubection*{Applications of Hard Theorems}
+  \thm{ 4 } {
+    If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there
+    exists a $x$ in $[a,b]$ such that $f(x)=c$
+  }
+  \thm{ 5 } {
+    If $f$ is continuous on $[a,b]$ and $f(a) > c > f(b)$, then there
+    exists a $x$ in $[a,b]$ such that $f(x)=c$
+  }
+  \thm{ 6 } {
+    If $f$ is continuous on $[a,b]$ then there exists an
+    $N \in \mathbb{N} $ such that $N \leq f(x), \forall x \in [a,b]$.
+  }
+
+  \nt {
+    T2 + T6 gives $f|(x)|< N, \forall x \in [a,b]$
+  }
+  \thm{ 7 } {
+    If $f$ is continuous on $[a,b]$ then there exists an
+    $y \in [a,b]$ such that $f(y) \leq f(x), \forall x \in [a,b]$.
+  }
+
+  \thm{ 8 } {
+    Every positive number $\alpha \in \mathbb{R}$ has a square root
+  }
+
+  \subsection{Limits Involving $\infty$}
+     \dfn{Limit to $\infty$ }{
+       We say $\lim_{x \to \infty} f(x) = L$ if $\forall \epsilon >0$
+       there exists $n \geq \mathbb{Z}$ such that
+       \[ x > N \implies ff(x) - L| < \epsilon \]
+     }
+  \subsection{Least Upper Bound}%
+  \dfn{ Upper / Lower Bound }{
+    For a set $A \subset \mathbb{R}$ we say that
+      \begin{itemize}
+        \item $x$ is an upper bound for $A$ if
+          \[ $x \geq a \forall a \in A$ \]
+        \item $x$ is a lower bound for $A$ if
+          \[ $x \leq a \forall a \in A$ \]
+          NOT UNIQUE
+      \end{itemize}
+  }
+  \nt { Upper / Lower bound need not be unique }
+  \dfn{ Least Upper / Greatest Lower Bound }{
+    For a set $A \subset \mathbb{R}$ we say that
+    \begin{itemize}
+      \item $x$ is a least upper bound (LUB) for $A$ if for all upper
+        bounds $y \in A$, $x \leq y$ and $x$ is an upper bound for A
+      \item $x$ is a greatest lower bound (GLB) for $A$ if for all lower
+        bounds $y \in A$, $x \geq y$ and $x$ is an upper bound for A
+    \end{itemize}
+  }
+  \nt {LUB abd GLB need NOT exist, but a set $A \subset \mathbb{R}$ has
+      at most one LUB and at most one GLB}
+
+  \dfn{ 13th Property - Least Upper Bound Peroperty}{
+    If $A \subset \mathbb{R}, A \neq \emptyset$ and $A$ has an upper bound,
+    then A has a least upper bound
+  }
+  \dfn{ Supremum / Infinum }{
+    For a set $A \subset \mathbb{R}$ we define
+    sup(A) = 
+    \[
+      \begin{cases}
+        - \infty \text{ if } A = \emptyset \\
+        \infty \text{ if } A \text{ does not have an upper bound } \\
+        \text{ LUB } \text{ if } A \text{ has an upper bound and $A \new \emptyset$}
+      \end{cases}
+    \]
+
+    inf(A) = 
+    \[
+      \begin{cases}
+        \infty \text{ if } A = \emptyset \\
+        - \infty \text{ if } A \text{ does not have a lower bound } \\
+        \text{ GLB } \text{ if } A \text{ has a lower bound and $A \new \emptyset$}
+      \end{cases}
+    \]
+  }
+  \thm{ LUB / GLB existence } {
+    If $A  \subset  \mathbb{R}$ $A \neq \emptyset$ and $A$ has a lower
+    bound, then A has a GLB.
+  }
+  \thm{ One can get arbitrarily close to sup(A)/inf(A) } {
+    Let $A \subset \mathbb{R}$ and
+      \begin{itemize}
+        \item let sup(A) be finite.  Then $\forall \epsilon > 0, \exists
+           a \in A$ such that
+           \[ \text{ sup}(A) - \epsilon < a < \text{ sup}(A) \]
+        \item let inf(A) be finite.  Then $\forall \epsilon > 0, \exists
+           a \in A$ such that
+           \[ \text{ inf}(A) < a < \text{ inf}(A) + \epsilon \]
+      \end{itemize}
+  }
 \end{document}

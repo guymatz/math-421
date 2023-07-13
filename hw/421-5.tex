@@ -30,25 +30,50 @@
 \begin{document}
 
 \begin{center}
-\Large{\textbf{Assignment \#3}
+\Large{\textbf{Assignment \#5}
             
 UW-Madison MATH 421} % Name of course here
 \vspace{5pt}
         
 \normalsize{  Guy Matz% Your name here
-        \\ Due: June 30, 2023}
+        \\ Due: July 13, 2023}
 \vspace{15pt}
 \end{center}
 
 \section*{Exercises}%
 \begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
+
   \item Prove the following
     \begin{enumerate}
       \item If $c \in \Rb$, then the constant function $f(x) =c$ is continuous at every real number.
+
+        \underline{Scratch:}
+          \begin{align*}
+            |f(x) - f(c)| &= |c - c| \\
+                          &= 0 \\
+                          &\leq \epsilon
+          \end{align*}
+           So we set $\delta = 0$
         \begin{proof}[Proof of (a)]
+
+          Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = 0$.
+          Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
+            \[ |f(x) - f(c)| < \epsilon \]
+
         \end{proof}
       \item The function $f(x) = x$ is continuous at every real number.
+
+        \underline{Scratch:}
+          \begin{align*}
+            |f(x) - f(c)| &= |x - c| \\
+                          &\leq \epsilon
+          \end{align*}
+          So we set $\delta = \epsilon$
         \begin{proof}[Proof of (b)]
+          Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = \epsilon$.
+          Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
+            \[ |f(x) - f(c)| < \epsilon \]
+
         \end{proof}
     \end{enumerate}
 
@@ -60,29 +85,60 @@ UW-Madison MATH 421} % Name of course here
   \begin{enumerate}
     \item If $n$ is a natural number, then the function $f(x) = x^n$ is
       continuous at every real number.
-      \begin{proof}[Proof of (a)]
-      \end{proof}
+
+        \begin{proof}[Proof of (a)]
+          Let $g_i(x) = x, i \in \{1\dots n\}$.  Then
+            \[ f(x) = g_1(x) \cdot g_2(x) \dots g_n(x) = x^n \]
+            By Exercise 1b, we know that $g_i(x)$ is continuous, and we 
+            know that the multiplying continuous functions yields a 
+            continuous function.
+        \end{proof}
 
     \item If $g$ is a polynomial, then $g$ is continuous at every real number.
-      \begin{proof}[Proof of (b)]
-      A polynomial is defined as an expression which is composed of variables, constants and exponents, that are combined using mathematical operations such as addition, subtraction, multiplication and division (No division operation by a variable).
-      \end{proof}
+        \begin{proof}[Proof of (b)]
+          A polynomial is "an expression which is composed of variables,
+          constants and exponents, that are combined using mathematical
+          operations such as addition, subtraction, multiplication and
+          division (No division operation by a variable)."
+
+          With this definition in mind we can see that what we have
+          shown in Exercise 2a, above, shows us that a specific polynomial
+          is continuous.  Using the logic above we can also see that 
+          since the addition and subtraction of continuous functions yields
+          a continuous function.  The same can be said for multiplication
+          by constants.
+        \end{proof}
+
     \item If $h$ is a rational function, then $h$ is continuous at every number in its domain.
 
-      \begin{proof}[Proof of (c)]
-        a rational function is any function that can be defined by a rational fraction, which is an algebraic fraction such that both the numerator and the denominator are polynomials. The coefficients of the polynomials need not be rational numbers; 
-      \end{proof}
+        A rational function is any function that can be defined by a rational fraction, which is an algebraic fraction such that both the numerator and the denominator are polynomials. The coefficients of the polynomials need not be rational numbers; 
+
+        \begin{proof}[Proof of (c)]
+          With this definition in mind we can see that what we have
+          shown in Exercise 2b, above, shows us that any polynomial is
+          continuous.  And we know that the division on a continuous
+          function by another continuous function, not equal tp 0, is a
+          continuous function.
+        \end{proof}
   \end{enumerate}
 
 
 
 \newpage
 \item Spivak, Chapter 6, Problem 3 (a)
-  Suppose that $f$ i s a function satisfying $\abs{f(x)} \leq \abs{x}$
+  Suppose that $f$ i s a function satisfying $|f(x)| \leq |x|$
   for all $x$. Show that $f$ is continuous at $0$. (Notice that $f(0)$
   must equal 0.)
 
 \begin{proof}
+    \underline{Scratch:}
+      \begin{align*}
+        ||f(x)| - |f(c)|| &= ||x| - |c|| \\
+                          &\leq ||x|| - ||c|| \\
+                          &= |x| - |c|
+      \end{align*}
+      So we set $\delta = \epsilon$
+
 \end{proof}
 
 
@@ -147,84 +203,85 @@ $$
 
 \subsection*{Definitions}
 
-  \dfn{ \textbf{Continuity }}{
+%  \dfn{ \textbf{Continuity }}{
+%
+%    $f$ is \underline{continuous} at $a \in \text{ Dom}(f)$ if
+%      \[ \lim_{x \to a} f(x) = f(a) \]
+%  }
+%
+%  \dfn{ \textbf{Continuous Function }}{
+%    A function $f$ is \underline{continuous} if it is continuous at
+%    every point in its domain
+%  }
+%
+%  \nt{
+%    \[ \lim_{x \to a} f(x) = f(a) \]
+%      is the same as $\forall \epsilon > 0 \exists \delta > 0$ such that
+%      \[ 0 < |x-a| < \delta \implies  |f(x) - f(a)| < \epsilon \]
+%      When $|x-a| = 0, x=a \implies |f(x)-f(a)=|f(a)-f(a)=0 < \epsilon$
+%      I.e., you can drop the $0 < |x-a|$
+%  }
+%
+%  \dfn{ \textbf{Continuous at a point }}{
+%    We say that $f$ is continuous at $a$ if $\forall \epsilon > 0
+%    \exists \delta > 0 \text{ such that } |x-a| < \delta \implies
+%    |f(x) -f(a)| < \epsilon$
+%  }
+%
+%\subsection*{Theorems}
+%
+%  \thm{ \textbf{Triangle Inequality }} {
+%    If $x$  and $y$ are real numbers, then
+%      \begin{itemize}
+%        \item $|x+y| \leq |x| + |y|$
+%        \item $||x|-|y|| \leq |x - y|$
+%      \end{itemize}
+%
+%  }
+%
+%  \thm{ \textbf{Continuity of Functions }} {
+%    Let $f$ and $g$ be continuous functions at $a$.  Then
+%    \begin{enumerate}
+%      \item $(f+g) \text{ is continuous at  } a$
+%      \item $(f \cdot g) \text{ is continuous at  } a$
+%      \item If $g(a) \neq 0$, then $\frac{1}{g}$ is continuous at a.
+%    \end{enumerate}
+%    \ex{Product of Continuous Functions} {
+%      \begin{align*}
+%        \lim_{x \to a} (f*g)(x) &= \lim_{x \to a} f(x) * g(x) \\
+%                              &= f(a) * g(a) \\
+%                              &= (f*g)(a)
+%      \end{align*}
+%    }
+%  }
+%
+%  \thm{ \textbf{Composition of Continuous Functions }} {
+%    If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$
+%    then $f \circ g$ is continuous at a.
+%  }
+%
+%  \nt{
+%    \underline{Proof Template - Continuity}
+%
+%    % From https://youtu.be/HTN2rldZCHc
+%    Prove: $f:\mathbb{R} \Rightarrow \mathbb{R}$ defined by 
+%    $f(x)=|x|$ is continuous
+%
+%    Scratch: 
+%      \begin{align*}
+%        |f(x) - f(c)| &= ||x| - |c|| \\
+%                      &\leq |x - c| \\
+%                      &\leq \delta
+%      \end{align*}
+%      So we set $\delta = \epsilon$
+%
+%    \myproof {
+%      Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = \epsilon$.
+%      Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
+%        \[ |f(x) - f(c)| < \epsilon \]
+%    }
+%  }
 
-    $f$ is \underline{continuous} at $a \in \text{ Dom}(f)$ if
-      \[ \lim_{x \to a} f(x) = f(a) \]
-  }
-
-  \dfn{ \textbf{Continuous Function }}{
-    A function $f$ is \underline{continuous} if it is continuous at
-    every point in its domain
-  }
-
-  \nt{
-    \[ \lim_{x \to a} f(x) = f(a) \]
-      is the same as $\forall \epsilon > 0 \exists \delta > 0$ such that
-      \[ 0 < |x-a| < \delta \implies  |f(x) - f(a)| < \epsilon \]
-      When $|x-a| = 0, x=a \implies |f(x)-f(a)=|f(a)-f(a)=0 < \epsilon$
-      I.e., you can drop the $0 < |x-a|$
-  }
-
-  \dfn{ \textbf{Continuous at a point }}{
-    We say that $f$ is continuous at $a$ if $\forall \epsilon > 0
-    \exists \delta > 0 \text{ such that } |x-a| < \delta \implies
-    |f(x) -f(a)| < \epsilon$
-  }
-
-\subsection*{Theorems}
-
-  \thm{ \textbf{Triangle Inequality }} {
-    If $x$  and $y$ are real numbers, then
-      \begin{itemize}
-        \item $|x+y| \leq |x| + |y|$
-        \item $||x|-|y|| \leq |x - y|$
-      \end{itemize}
-
-  }
-
-  \thm{ \textbf{Continuity of Functions }} {
-    Let $f$ and $g$ be continuous functions at $a$.  Then
-    \begin{enumerate}
-      \item $(f+g) \text{ is continuous at  } a$
-      \item $(f \cdot g) \text{ is continuous at  } a$
-      \item If $g(a) \neq 0$, then $\frac{1}{g}$ is continuous at a.
-    \end{enumerate}
-    \ex{Product of Continuous Functions} {
-      \begin{align*}
-        \lim_{x \to a} (f*g)(x) &= \lim_{x \to a} f(x) * g(x) \\
-                              &= f(a) * g(a) \\
-                              &= (f*g)(a)
-      \end{align*}
-    }
-  }
-
-  \thm{ \textbf{Composition of Continuous Functions }} {
-    If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$
-    then $f \circ g$ is continuous at a.
-  }
-
-  \nt{
-    \underline{Proof Template - Continuity}
-
-    % From https://youtu.be/HTN2rldZCHc
-    Prove: $f:\mathbb{R} \Rightarrow \mathbb{R}$ defined by 
-    $f(x)=|x|$ is continuous
-
-    Scratch: 
-      \begin{align}
-        |f(x) - f(c)| &= ||x| - |c|| \\
-                      &\leq |x - c| \\
-                      &\leq \delta
-      \end{align}
-      So we set $\delta = \epsilon$
-
-    \myproof {
-      Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = \epsilon$.
-      Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
-        \[ |f(x) - f(c)| < \epsilon \]
-    }
-  }
-
+  \end{enumerate}
 
 \end{document}
