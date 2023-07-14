@@ -43,31 +43,31 @@ UW-Madison MATH 421} % Name of course here
 \section*{Exercises}%
 \begin{enumerate}[label={\fbox{\textbf{Exercise \#\arabic* :}}}]
 
-  \item Prove the following
+\item Prove the following
     \begin{enumerate}
       \item If $c \in \Rb$, then the constant function $f(x) =c$ is continuous at every real number.
 
-        \underline{Scratch:}
-          \begin{align*}
-            |f(x) - f(c)| &= |c - c| \\
-                          &= 0 \\
-                          &\leq \epsilon
-          \end{align*}
-           So we set $\delta = 0$
+%        \underline{Scratch:}
+%          \begin{align*}
+%            |f(x) - f(c)| &= |c - c| \\
+%                          &= 0 \\
+%                          &\leq \epsilon
+%          \end{align*}
+           So we set $\delta = 5$
         \begin{proof}[Proof of (a)]
 
-          Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = 0$.
+          Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = 5$.
           Then for all $x \in \mathbb{R}$ where $|x-c| < \delta$,
             \[ |f(x) - f(c)| < \epsilon \]
 
         \end{proof}
       \item The function $f(x) = x$ is continuous at every real number.
 
-        \underline{Scratch:}
-          \begin{align*}
-            |f(x) - f(c)| &= |x - c| \\
-                          &\leq \epsilon
-          \end{align*}
+%        \underline{Scratch:}
+%          \begin{align*}
+%            |f(x) - f(c)| &= |x - c| \\
+%                          &\leq \epsilon
+%          \end{align*}
           So we set $\delta = \epsilon$
         \begin{proof}[Proof of (b)]
           Let $\epsilon>0$ and $c \in \mathbb{R}$.  Take $\delta = \epsilon$.
@@ -89,17 +89,18 @@ UW-Madison MATH 421} % Name of course here
         \begin{proof}[Proof of (a)]
           Let $g_i(x) = x, i \in \{1\dots n\}$.  Then
             \[ f(x) = g_1(x) \cdot g_2(x) \dots g_n(x) = x^n \]
-            By Exercise 1b, we know that $g_i(x)$ is continuous, and we 
+            By Exercise 1b, we know that $g_i(x)$ is continuous, and 
+            by theorems shown in class, we 
             know that the multiplying continuous functions yields a 
             continuous function.
         \end{proof}
 
     \item If $g$ is a polynomial, then $g$ is continuous at every real number.
         \begin{proof}[Proof of (b)]
-          A polynomial is "an expression which is composed of variables,
+          \emph{A polynomial is "an expression which is composed of variables,
           constants and exponents, that are combined using mathematical
           operations such as addition, subtraction, multiplication and
-          division (No division operation by a variable)."
+        division (No division operation by a variable)."}
 
           With this definition in mind we can see that what we have
           shown in Exercise 2a, above, shows us that a specific polynomial
@@ -111,14 +112,14 @@ UW-Madison MATH 421} % Name of course here
 
     \item If $h$ is a rational function, then $h$ is continuous at every number in its domain.
 
-        A rational function is any function that can be defined by a rational fraction, which is an algebraic fraction such that both the numerator and the denominator are polynomials. The coefficients of the polynomials need not be rational numbers; 
+        \emph{A rational function is "any function that can be defined by a rational fraction, which is an algebraic fraction such that both the numerator and the denominator are polynomials. The coefficients of the polynomials need not be rational numbers"} 
 
         \begin{proof}[Proof of (c)]
           With this definition in mind we can see that what we have
           shown in Exercise 2b, above, shows us that any polynomial is
-          continuous.  And we know that the division on a continuous
-          function by another continuous function, not equal tp 0, is a
-          continuous function.
+          continuous.  By Theorem 6.1 we know that the division on a
+          continuous function by another continuous function, not equal
+          to 0, is a continuous function.
         \end{proof}
   \end{enumerate}
 
@@ -130,14 +131,26 @@ UW-Madison MATH 421} % Name of course here
   for all $x$. Show that $f$ is continuous at $0$. (Notice that $f(0)$
   must equal 0.)
 
+%    \underline{Scratch:}
+%      \begin{align*}
+%        ||f(x)| - |f(c)|| &= ||x| - |c|| \\
+%                          &\leq ||x|| - ||c|| \\
+%                          &= |x| - |c|
+%      \end{align*}
+
 \begin{proof}
-    \underline{Scratch:}
-      \begin{align*}
-        ||f(x)| - |f(c)|| &= ||x| - |c|| \\
-                          &\leq ||x|| - ||c|| \\
-                          &= |x| - |c|
-      \end{align*}
       So we set $\delta = \epsilon$
+
+      We see that $\lim f(x) \leq lim |x|$, and
+      $\lim_{x \to 0} |f(x)| = \lim_{x \to 0} |x| = 0$
+
+      Since $|f(x)| \leq |x|$, for $x=0$ we have
+      \[ 0 \leq |f(0)| \leq 0 \]
+      so $f(0) = 0$
+
+      So we fix $\epsilon > 0$ , and we have $c \in \mathbb{R}$.  Take
+      $\delta = \epsilon$.  Then $\forall \in \mathbb{R}$, where $|x-0| < \delta$,
+      \[ |f(x) - (0)| = |f(x)| \leq |x| < \delta = \epsilon \]
 
 \end{proof}
 
@@ -148,7 +161,10 @@ UW-Madison MATH 421} % Name of course here
   $\abs{f}(x) = \abs{f(x)}$. Prove: if $f$ is continuous at $a$, then
   $\abs{f}$ is continuous at $a$.
 
-\begin{proof} (Hint: use a problem on a previous HW)
+\begin{proof}
+  By Homework 4, Ex 6 we know that $|f|$ is continuous .  And by Ex 3 above
+  we know that if $|f(x)|$ is continuous at a point $a$. then $|f(x)|$
+  is continuous at the point $a$.
 \end{proof}
 
 
@@ -160,8 +176,22 @@ $$f(x) = \begin{cases} 0 & \text{if $x$ is irrational} \\
 $$
 Using the $\epsilon/\delta$ definition, prove that $\lim_{x \rightarrow a} f(x)$ does not exist for every real number $a$ (and hence $f$ is discontinuous at every real number).
 
-\begin{proof}
-\end{proof}
+  \renewcommand\qedsymbol{\Lightning}
+  \begin{proof}[\textbf{Proof by contradiction}]  Towards a contradiction,
+    let's assume that a limit exists.  In this case, $f(x)$ is continuous
+    at a point $q \in \mathbb{Q}$, and $f(q) = 1$, so the 
+    $\lim_{x \to q} f(x) = 1$.
+    By the continuity of $f$, $\exists \delta >0, a \in \mathbb{R}$
+    such that
+      \[ |x-q| < \delta \implies |f(x) - f(q)| < \epsilon \]
+    Take $\delta = 3$.  Then we would like to be able to say that 
+    $\forall x \in \mathbb{R}$
+    \[ |x-q| < \delta \implies |f(x) - f(q)| = 1 -1 =0 \]
+      However, by Theorem 1, there exists an irrational number
+      $i \in (q - \delta, q + \delta)$ where $|f(x) - f(i)| = 1 - 0 =1$
+      So the limit does not exist.
+  \end{proof} 
+  \renewcommand\qedsymbol{$\square$}
 
 \newpage
 \item Prove: if $f$ is continuous at $x=1$ and $f(1) = 7$,
@@ -170,8 +200,37 @@ $$
 \lim_{x \rightarrow 4} f(8x-31) = 7.
 $$
 
-\begin{proof}
-    use $(f \circ g)(x)$
+\begin{proof}[Proof: Using Theorem]
+
+  \[ g(x) = 8x - 31 \]
+    By Exercise 2a above, $g$ is continuous at $x=4$.  $g(4) = 1$, and
+    we know that $f$ is continuous at 1, so $f$ 
+    is continuous at $g(4)$.  Hence $f \circ g$ is continuous at 4 by
+    theorem, which implies that
+    \begin{align*}
+      \lim_{x \to 4} f\circ g(x) &= f\circ g(4) \\
+                            &= f(g(4)) \\
+                            &= f(1) \\
+                            &= 7 \\
+                            &\implies \lim_{x \to 4} f(8x-31) = 7
+    \end{align*}
+\end{proof}
+
+\begin{proof}[Proof: Using $\epsilon / \delta$]
+
+    Fix $\epsilon > 0$.  By continuity of $f(1), \exists \delta >0$
+    such that 
+    \[ |y-1| < \delta_1 \implies |f(y) - f(1)| < \epsilon \]
+    \underline{New Goal: } Find $\delta > 0$ such that
+      \[ |x-4|< \delta \implies |8x-31 - 1| < \delta_1 \]
+      Now $|8x - 31 - 1| = |8x - 32| = 8|x-4|$
+
+      So if $\delta = \frac{\delta_1}{8}$, then
+      $|x-4| < \frac{\delta_1}{8} =  \delta$
+      Which implies
+      \[ |8x - 31- 1| < \delta_1 \]
+      And so we have
+        \[ |f(8x-31)-7| <\epsilon \text{ if } |x-4| < \frac{\delta_1}{8} \]
 \end{proof}
 
 \newpage
@@ -182,6 +241,18 @@ $$
 $$
 
 \begin{proof}
+  Let $g(x) = x^2 -x-11$.  By 2b above we know that any polynomial is
+  continuous, so $g(x)$ is continuous.  Specifically, $g$ is continuous at
+  $x=1$.  We know that $f$ is continuous at 1, by assumption.  Since\\
+  $g(4) = 16 - 4 - 11 = 1$, $f \circ g$ is continuous at $x=1$ by theorem,
+  which implies that
+    \begin{align*}
+      \lim_{x \to 4} f \circ g &= f \circ g(4) \\
+                        &= f(g(4))\\
+                        &= f(1)\\
+                        &= 7\\
+                        \implies& \lim_{x \to 4} f \circ g(x) = 7
+    \end{align*}
 \end{proof}
 
 \newpage

@@ -1,0 +1,160 @@
+% This is a template for doing homework assignments in LaTeX, cribbed from M. Frenkel (NYU) and A. Hanhart (UW-Madison)
+
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage[margin=1in]{geometry} % This package allows the editing of the page layout. I've set the margins to be 1 inch. 
+
+\usepackage{amsmath, amsfonts}  % The first package allows the use of a large range of mathematical formula, commands, and symbols.  The second gives some useful mathematical fonts.
+
+\usepackage{graphicx}  % This package allows the importing of images
+
+\usepackage[shortlabels]{enumitem} % This package allows for different types of labels in the enumerate environment 
+
+
+%This allows us to use the theorem and proof environment 
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+
+%Custom commands.  
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value command
+
+%Custom symbols
+\newcommand{\Rb}{\mathbb{R}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+\Large{\textbf{Assignment \#6}
+            
+UW-Madison MATH 421} 
+\vspace{5pt}
+        
+\normalsize{  YOUR NAME HERE
+        
+Due: July 20, 2023   }
+\vspace{15pt}
+        
+\end{center}
+
+
+\noindent\fbox{\textbf{Exercise \#1:}} Assuming that the function $f(x) = e^x$ is continuous, prove that the equation $e^x = 4-x^7$ has a solution. 
+
+\begin{proof} 
+\end{proof} 
+
+
+
+
+
+
+\noindent\fbox{\textbf{Exercise \#2:}} Suppose $f$ is continuous on $[a,b]$. If $f(x) \neq 0$ for all $x$ in $[a,b]$, then either $f(x) > 0$ for all $x$ in $[a,b]$ or $f(x) < 0$ for all $x$ in $[a,b]$
+
+\begin{proof} 
+
+\end{proof} 
+
+
+
+
+
+\noindent\fbox{\textbf{Exercise \#3:}} Suppose $f(x) = x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$ is a polynomial. Prove:
+\begin{enumerate}[(a)]
+\item $\lim_{x \rightarrow\infty} f(x) = \infty$.
+\item If $n$ is even, then  $\lim_{x \rightarrow-\infty} f(x) = \infty$. 
+\item If $n$ is odd, then  $\lim_{x \rightarrow-\infty} f(x) = -\infty$.
+\end{enumerate}
+
+\begin{proof}[Proof of (a)] 
+
+\end{proof} 
+
+\begin{proof}[Proof of (b)] 
+
+\end{proof} 
+
+\begin{proof}[Proof of (c)] 
+
+\end{proof} 
+
+
+
+\noindent\fbox{\textbf{Exercise \#4:}} Suppose $f$ is continuous on $\Rb$. If $\lim_{x \rightarrow\infty} f(x) = \infty$ and $\lim_{x \rightarrow -\infty} f(x)=-\infty$, then there exists a number $x$ such that $f(x)=0$. 
+
+
+\begin{proof} 
+\end{proof} 
+
+\noindent\fbox{\textbf{Exercise \#5:}} Prove: If $A,B \subset \Rb$ are both non-empty and bounded above, then 
+$$
+\sup(A \cup B) = \max\{\sup(A), \sup(B)\}.
+$$
+
+
+\begin{proof} (Hint: first show that $ \max\{\sup(A), \sup(B)\}$ is an upper bound of $A \cup B$, then show it is the least upper bound)
+\end{proof} 
+
+\noindent\fbox{\textbf{Exercise \#6:}} Prove: If $A,B \subset \Rb$ are both non-empty and bounded above, then 
+$$
+\sup(A \cap B) \leq \min\{\sup(A), \sup(B)\}.
+$$
+
+
+\begin{proof} (Hint: show that $\min\{\sup(A), \sup(B)\}$ is an upper bound of $A \cap B$) 
+\end{proof} 
+
+\noindent\fbox{\textbf{Exercise \#7:}} Find an example of subsets $A,B \subset \Rb$ which are both non-empty, both bounded above, and 
+$$
+\sup(A \cap B) < \min\{\sup(A), \sup(B)\}.
+$$
+
+
+\begin{proof} 
+\end{proof} 
+
+
+
+\noindent\fbox{\textbf{Exercise \#8:}} Prove the following lemma from class:
+
+\begin{lemma*} If $f$ is continuous on $[a,b]$ and $f(a) < 0 < f(b)$, then there exist $\delta_1, \delta_2 > 0$ such that 
+	\begin{enumerate}
+		\item $f$ is negative on $[a,a+\delta_1)$
+		\item $f$ is positive on $(b-\delta_2, b]$.
+	\end{enumerate}
+\end{lemma*}
+
+\begin{proof} (Hint: look at the proof of Theorem 6-3) 
+\end{proof} 
+
+\noindent\fbox{\textbf{Exercise \#9:}} Suppose $f$ is a function such that $f(x_1) \leq f(x_2)$ whenever $x_1< x_2$. Prove: 
+\begin{enumerate}[(a)]
+	\item If $A = \{ f(x) : x < a\}$, then $\lim_{x \rightarrow a^-} f(x) = \sup(A)$.
+	\item If $B = \{ f(x) : a < x\}$, then $\lim_{x \rightarrow a^+} f(x) = \inf(B)$.
+\end{enumerate}
+
+\begin{proof} (Hint for (a): by a theorem in class for every $\epsilon > 0$ there exists some $\alpha \in A$ such that $\sup(A) -\epsilon < \alpha \leq \sup(A)$)
+	
+\end{proof} 
+
+
+
+
+
+\noindent\fbox{\textbf{Exercise \#10:}} Give a different proof of Theorem 7-1 which uses the set 
+$$B = \{x \in [a,b] : a \leq x \leq b \text{ and } f(x) < 0\}$$
+instead of the set $A = \{ x \in [a,b] : f \text{ is negative on } [a,x]\}$. 
+
+\begin{proof} (Hint: as in the proof of Theorem 7-1, you want to show that $a < \sup(B) < b$ and then $f(\sup(B)) = 0$)
+	
+\end{proof} 
+
+
+    
+\end{document}
