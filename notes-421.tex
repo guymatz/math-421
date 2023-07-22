@@ -1,4 +1,5 @@
 \documentclass{report}
+\newtheorem{lemma}[theorem]{Lemma}
 
 \input{.tex/preamble}
 \input{.tex/macros}
@@ -1267,7 +1268,8 @@
     \end{enumerate}
   }
 
-  \subsection*{Continuity on $\mathbb{R}$}%
+%  \subsection*{Continuity on $\mathbb{R}$}%
+\newpage
   \subsection*{Chapter 7 - Hard Theorems}%
 
   \dfn{ $f$ is Continuous }{
@@ -1291,32 +1293,32 @@
     does NOT mean that $f$ is continuous at $a$ or $b$
   }
 
-  \thm{ 1 } {
+  \thm{ 1 - if $f$ crosses the x axis if . . . } {
     If $f$ is continuous on $[a,b]$ and $f(a) < 0 < f(b)$, then there
     exists a $c$ in $[a,b]$ such that $f(c)=0$
   }
 
-  \thm{ 2 } {
+  \thm{ 2 - Bounded above } {
     If $f$ is continuous on $[a,b]$ then there exists an
-    $N \in \mathbb{Z} $ for all $x \in [a,b]$.  That is, $f$ is
-    bounded above.
+    $N \in \mathbb{Z} $ s.t. $f(x) \leq N$ for all $x \in [a,b]$.
+    That is, $f$ is bounded above.
   }
 
-  \thm{ 3 } {
+  \thm{ 3 - $f$ has a max / min on $[a,b]$ } {
     If $f$ is continuous on $[a,b]$ then there exists a $y \in [a,b]$
-    such that $f(x) \leq f(y), \forall x \in [a,b]$
+    such that $f(y) \geq f(y), \forall x \in [a,b]$
   }
 
   \subsubection*{Applications of Hard Theorems}
-  \thm{ 4 } {
+  \thm{ 4  - $[a,b]$ has a point - c - where $f(x) = c$ } {
     If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there
     exists a $x$ in $[a,b]$ such that $f(x)=c$
   }
-  \thm{ 5 } {
+  \thm{ 5 - $[a,b]$ has a point - c - where $f(x) = c$ } {
     If $f$ is continuous on $[a,b]$ and $f(a) > c > f(b)$, then there
     exists a $x$ in $[a,b]$ such that $f(x)=c$
   }
-  \thm{ 6 } {
+  \thm{ 6  - $f$ is bounded above/below on an interval } {
     If $f$ is continuous on $[a,b]$ then there exists an
     $N \in \mathbb{N} $ such that $N \leq f(x), \forall x \in [a,b]$.
   }
@@ -1324,20 +1326,37 @@
   \nt {
     T2 + T6 gives $f|(x)|< N, \forall x \in [a,b]$
   }
-  \thm{ 7 } {
+  \thm{ 7 - $f(x)$ has a min/max on $[a,b]$ } {
     If $f$ is continuous on $[a,b]$ then there exists an
     $y \in [a,b]$ such that $f(y) \leq f(x), \forall x \in [a,b]$.
   }
 
-  \thm{ 8 } {
+  \thm{ 8  - Square roots} {
     Every positive number $\alpha \in \mathbb{R}$ has a square root
+  }
+
+  \thm{ 9 - Odd-degree polynomials pass the x-axis} {
+    Let $f$ be a polynomial with odd degree.  Then there exists an 
+    $x \in \mathbb{R}$ s.t. $f(x)=0$
+  }
+
+  \thm{ 10 - Even-degree polynomials have a lower or upper limit} {
+    If $f(x) = x^ + a_{n-1}x^{n-1} + \dots + a_0$ is an even-degree
+    polynomial then
+    \[ \exists y \in \mathbb{R} s.t. f(y) \leq f(x) \forall x \in \mathbb{R}  \]
+  }
+
+  \thm{ 11 - If limits to $\infty$ go to 0, then there's a high point } {
+    If $f$ is continuous on $\mathbb{R}$ and $\exists x_0 \in \mathbb{R}$
+    with $f(x_0) > 0$ and $\lim_{x \to -\infty} f(x) = \lim_{x \to \infty} f(x) = 0$, then there exists $y \in \mathbb{R}$ such that
+    $f(x) \leq f(y)$ for all $x \in \mathbb{R}$
   }
 
   \subsection{Limits Involving $\infty$}
      \dfn{Limit to $\infty$ }{
        We say $\lim_{x \to \infty} f(x) = L$ if $\forall \epsilon >0$
        there exists $n \geq \mathbb{Z}$ such that
-       \[ x > N \implies ff(x) - L| < \epsilon \]
+       \[ x > N \implies |f(x) - L| < \epsilon \]
      }
   \subsection{Least Upper Bound}%
   \dfn{ Upper / Lower Bound }{
@@ -1350,6 +1369,7 @@
           NOT UNIQUE
       \end{itemize}
   }
+  \nt { Upper / Lower bound need not not be an element of the set }
   \nt { Upper / Lower bound need not be unique }
   \dfn{ Least Upper / Greatest Lower Bound }{
     For a set $A \subset \mathbb{R}$ we say that
@@ -1369,27 +1389,39 @@
   }
   \dfn{ Supremum / Infinum }{
     For a set $A \subset \mathbb{R}$ we define
-    sup(A) = 
+
     \[
+    sup(A) = 
       \begin{cases}
         - \infty \text{ if } A = \emptyset \\
         \infty \text{ if } A \text{ does not have an upper bound } \\
-        \text{ LUB } \text{ if } A \text{ has an upper bound and $A \new \emptyset$}
+        \text{ LUB } \text{ if } A \text{ has an upper bound and $A \neq \emptyset$}
       \end{cases}
     \]
 
-    inf(A) = 
     \[
+    inf(A) = 
       \begin{cases}
         \infty \text{ if } A = \emptyset \\
         - \infty \text{ if } A \text{ does not have a lower bound } \\
-        \text{ GLB } \text{ if } A \text{ has a lower bound and $A \new \emptyset$}
+        \text{ GLB } \text{ if } A \text{ has a lower bound and $A \neq \emptyset$}
       \end{cases}
     \]
   }
   \thm{ LUB / GLB existence } {
-    If $A  \subset  \mathbb{R}$ $A \neq \emptyset$ and $A$ has a lower
-    bound, then A has a GLB.
+
+    If $A  \subset  \mathbb{R}$ $A \neq \emptyset$ and ...
+    \begin{itemize}
+      \item $A$ has upper bound, then A has a LUB.
+      \item $A$ has lower bound, then A has a GLB.
+    \end{itemize}
+  }
+  \thm{ Arbitrary Closeness to LUB/GLB } {
+    Let $A \subset \mathbb{R}$ and let sup(A)/inf(A) be finite, then
+      \begin{itemize}
+        \item $\forall \epsilon > 0, \exists a \in A$ s.t. sup(A) - $\epsilon$ < a < sup(A)
+        \item $\forall \epsilon > 0, \exists a \in A$ s.t. inf(A) < a < sup(A) + $\epsilon $
+      \end{itemize}
   }
   \thm{ One can get arbitrarily close to sup(A)/inf(A) } {
     Let $A \subset \mathbb{R}$ and
@@ -1402,4 +1434,39 @@
            \[ \text{ inf}(A) < a < \text{ inf}(A) + \epsilon \]
       \end{itemize}
   }
+
+  \thm{ Let $f$ be continuous on $[a,b]$, then}{
+    \begin{enumerate}
+      \item $\exists \delta_1 > 0$ s.t.  $f$ is bounded above on $[a, + \delta_1]$
+      \item $\exists \delta_2 > 0$ s.t.  $f$ is bounded above on $[b - \delta_2, b]$
+      \item $\forall \alpha \in (a,b) \exists \delta> 0$ s.t.  $f$ is bounded above on $[\alpha - \delta, \alpha + \delta]$
+    \end{enumerate}
+  }
+  \dfn{ Archimedian Property }{
+    $\mathbb{N}$ is not bounded above
+  }
+\section{Derviates / Differentiation}%
+  \dfn{ Differentiable }{
+    We say that a ffunction $f$ is \underline{Diffferentiable} at a point
+    $a$ if
+      \[ \lim_{h \to 0} \frac{f(a+h) - a}{h}   \]
+      exists
+  }
+  \dfn{ Differentiable function}{
+    We say that a function $f$ is \underline{Diffferentiable} 
+    if it is \underline{differntiable} at every point in it's domain
+  }
+  \nt{Diffferentiation is stronger than Continuity.  Continuous function
+  need not be differentiable}
+
+  \thm{  } {
+    If $f$ is diferntiable at $a$ , then $f$ is continuous at $a$ 
+    \myproof {
+      GOAL: Show that 
+      \[ \lim_{x \to a} f(x) = f(a) \]
+      and
+      \[ \lim_{h \to 0} f(a+h) = f(a) \]
+    }
+  }
+  
 \end{document}
